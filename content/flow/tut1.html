@@ -1,0 +1,351 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Tutorial 1: Aquifer Storage &#8212; Groundwater I</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script async="async" src="../../_static/thebelab.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="canonical" href="https://tu-dresden.de/bu/umwelt/hydro/igw/content/flow/tut1.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Groundwater head and storage properties" href="12_gw_storage.html" />
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<!-- Put requirejs at the end so it's always after bootstrap -->
+<!-- TODO: remove this once https://github.com/pandas-dev/pydata-sphinx-theme/pull/149 is merged -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
+
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://tu-dresden.de/bu/umwelt/hydro/igw/content/flow/tut1.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Tutorial 1: Aquifer Storage" />
+<meta property="og:description" content="Tutorial 1: Aquifer Storage  import numpy as np import matplotlib.pyplot as plt import pandas as pd Tutorial 1  Tutorial problems on aquifer storage properties " />
+<meta property="og:image"       content="https://tu-dresden.de/bu/umwelt/hydro/igw/_static/logo3.png" />
+
+<meta name="twitter:card" content="summary">
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo3.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Groundwater I</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="../intro.html">The Interactive Groundwater-I Book</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Background</p>
+</li>
+  <li class="">
+    <a href="../background/00_general.html">Course GW520 about?</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Aquifer Properties and groundwater flow</p>
+</li>
+  <li class="active">
+    <a href="10_flow_overview.html">Groundwater Flow</a>
+  <ul class="nav sidenav_l2">
+    <li class="">
+      <a href="11_subsurface_structure.html">structure of the subsurface</a>
+    </li>
+    <li class="">
+      <a href="12_gw_storage.html">Groundwater head and storage properties</a>
+    </li>
+    <li class="active">
+      <a href="">Tutorial 1: Aquifer Storage</a>
+    </li>
+  </ul>
+  </li>
+</ul>
+</nav>
+<p class="navbar_footer">Powered by <a href="https://jupyterbook.org">Jupyter Book</a></p>
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"><i class="fas fa-download"></i><span class="topbar-button-text">Download</span></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../../_sources/content/flow/tut1.ipynb.txt"><button type="button" class="btn btn-secondary topbarbtn">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" onClick="window.print()">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Launch buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"><i class="fas fa-rocket"></i><span class="topbar-button-text">Launch</span></button>
+            <div class="dropdown-buttons">
+                
+                <a class="binder-button" href="https://mybinder.org/v2/gh/prabhasyadav/Groundwater-I/gh-pages?urlpath=tree/content/flow/tut1.ipynb"><button type="button" class="btn btn-secondary topbarbtn"><img class="binder-button-logo" src="../../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                
+                
+                <button type="button" class="btn btn-secondary topbarbtn thebelab-launch-button" onclick="initThebelab()"><i class="fas fa-rocket"></i><span style="margin-left: .4em;">ThebeLab</span></button>
+                
+            </div>
+        </div>
+        
+
+        <!-- Extra buttons -->
+        
+
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 col-xxl-7 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="tutorial-1-aquifer-storage">
+<h1>Tutorial 1: Aquifer Storage<a class="headerlink" href="#tutorial-1-aquifer-storage" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="tutorial-1">
+<h1>Tutorial 1<a class="headerlink" href="#tutorial-1" title="Permalink to this headline">¶</a></h1>
+<ol class="simple">
+<li><p><strong>Tutorial problems on aquifer storage properties</strong></p></li>
+<li><p><strong>Homework problems on aquifer storage properties</strong></p></li>
+</ol>
+<p> </p>
+<p><strong>Prabhas K Yadav</strong></p>
+<p>prabhas.yadav&#64;tu-dresden.de</p>
+<p><font color="red">Zi: IGW/E57 </font></p>
+<p><font color="red">Tel: 0351-4634557  </font></p>
+<hr class="docutils" />
+<p>07.11.2019</p>
+<div class="section" id="tutorial-problem-1">
+<h2>Tutorial Problem 1:<a class="headerlink" href="#tutorial-problem-1" title="Permalink to this headline">¶</a></h2>
+<p>The park called ,,Grosser Garten’’ in Dresden is underlain by an unconfined aquifer consisting of
+alluvial deposits. How much additional water is stored under the park if groundwater levels
+rise by 3 m during a wet period?</p>
+<img src="images/T01_TP1.png" alt="alt text" width="400"/>
+</div>
+<div class="section" id="tutorial-problem-1-solution">
+<h2>Tutorial Problem 1 – Solution<a class="headerlink" href="#tutorial-problem-1-solution" title="Permalink to this headline">¶</a></h2>
+<p><strong>For details check lecture slide: L02- 8</strong>
+<br><br></p>
+<p>The basic configuration of an unconfined aquifer:</p>
+<img src="images/T01_TP1_2.png" alt="alt text" width="400"/><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The given information of the problem are</span>
+
+<span class="n">L</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1"># km as length of garten</span>
+<span class="n">W</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># km as Width of garten</span>
+<span class="n">DP</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1"># m change in pressure head</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mf">0.3</span> <span class="c1"># porosity that we assume to be 30%</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">L</span> <span class="o">*</span> <span class="n">W</span> <span class="o">*</span><span class="mf">1e6</span> <span class="c1"># m^2, Area unit convered.</span>
+<span class="n">DV</span> <span class="o">=</span> <span class="n">A</span> <span class="o">*</span> <span class="n">DP</span> <span class="c1"># m^3, increase in total volume due to change in pressure head</span>
+<span class="n">AW</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">DV</span> <span class="c1"># m^3, additional Water volumne</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Park Area is </span><span class="si">{0:1.1E}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">A</span><span class="p">),</span><span class="s2">&quot;m</span><span class="se">\u00b2</span><span class="s2">&quot;</span><span class="p">)</span>  
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Increase in total volume: </span><span class="si">{0:1.1E}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">DV</span><span class="p">),</span><span class="s2">&quot;m</span><span class="se">\u00b3</span><span class="s2">&quot;</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Additional water volume: </span><span class="si">{0:1.1E}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">AW</span><span class="p">),</span><span class="s2">&quot;m</span><span class="se">\u00b3</span><span class="s2">&quot;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Park Area is 2.0E+06 m²
+Increase in total volume: 6.0E+06 m³
+Additional water volume: 1.8E+06 m³
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="tutorial-problem-3">
+<h2>Tutorial Problem 3:<a class="headerlink" href="#tutorial-problem-3" title="Permalink to this headline">¶</a></h2>
+<p>This problem addresses a confined aquifer with a thickness of 61 m and a specific storage of
+<span class="math notranslate nohighlight">\(1.2 \times 10^{-5}\)</span> 1/m. Due to water injection the pressure head rises by 0.75 m on average over an area 230 m in diameter.
+How much water is injected?</p>
+</div>
+<div class="section" id="tutorial-problem-3-solution">
+<h2>Tutorial Problem 3 – Solution<a class="headerlink" href="#tutorial-problem-3-solution" title="Permalink to this headline">¶</a></h2>
+<p><strong>For details check lecture slide: L03-28</strong></p>
+<p>Basic configuration of a confined aquifer:</p>
+<img src="images/T01_TP3.png" alt="Tut-P3" width="600"/>
+<p>specific storage:  $S_s = \frac{\Delta V_w}{V_T \cdot \Delta \psi } $</p>
+<p>with <br>
+<span class="math notranslate nohighlight">\(\Delta V_w\)</span> = change in water volume [L<span class="math notranslate nohighlight">\(^3\)</span>] <br>
+<span class="math notranslate nohighlight">\(V_T\)</span> = total volume [L<span class="math notranslate nohighlight">\(^3\)</span>]<br>
+<span class="math notranslate nohighlight">\(\Delta \psi\)</span> = change in pressure head [L]</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Given data</span>
+<span class="n">d</span> <span class="o">=</span> <span class="mi">230</span> <span class="c1"># m,  diameter of the aquifer</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">61</span> <span class="c1"># m, thickness of the aquifer</span>
+<span class="n">Ss</span> <span class="o">=</span> <span class="mf">1.2</span> <span class="o">*</span> <span class="mf">10e-5</span> <span class="c1"># 1/m, specific storage</span>
+<span class="n">DP_h</span> <span class="o">=</span> <span class="mf">0.75</span> <span class="c1"># m, pressure head difference</span>
+
+<span class="c1"># Calculations</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span><span class="p">(</span><span class="n">d</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="c1"># m^2, area of the aquifer</span>
+<span class="n">Vt</span> <span class="o">=</span> <span class="n">A</span><span class="o">*</span><span class="n">m</span> <span class="c1"># m^3 Total volume of the aquifer</span>
+<span class="n">DV_w</span> <span class="o">=</span> <span class="n">Ss</span><span class="o">*</span><span class="n">Vt</span><span class="o">*</span><span class="n">DP_h</span> <span class="c1"># m^3, additional water volume</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The Aquifer Area is </span><span class="si">{0:1.2E}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">A</span><span class="p">),</span><span class="s2">&quot;m</span><span class="se">\u00b2</span><span class="s2">&quot;</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The Total Volume is </span><span class="si">{0:1.2E}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Vt</span><span class="p">),</span><span class="s2">&quot;m</span><span class="se">\u00b3</span><span class="s2">&quot;</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The Additional Water is </span><span class="si">{0:1.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">DV_w</span><span class="p">),</span><span class="s2">&quot;m</span><span class="se">\u00b3</span><span class="s2">&quot;</span><span class="p">)</span>   
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>The Aquifer Area is 4.15E+04 m²
+The Total Volume is 2.53E+06 m³
+The Additional Water is 228.10 m³
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="tutorial-problem-4">
+<h2>Tutorial Problem 4:<a class="headerlink" href="#tutorial-problem-4" title="Permalink to this headline">¶</a></h2>
+<p>We consider an unconfined aquifer with a storage coefficient of 0.19. Water will be the change
+in water volume if the following drawdowns are observed in four sub-areas in a dry period:</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "prabhasyadav/Groundwater-I",
+            ref: "gh-pages",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "content/flow"
+        }
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="12_gw_storage.html" title="previous page">Groundwater head and storage properties</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2020.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.3.<br/>
+    </p>
+  </div>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>
