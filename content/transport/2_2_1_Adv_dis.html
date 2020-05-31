@@ -31,9 +31,11 @@
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script async="async" src="../../_static/thebelab.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="canonical" href="https://tu-dresden.de/bu/umwelt/hydro/igw/content/transport/2_2_Adv_dis.html" />
+    <link rel="canonical" href="https://tu-dresden.de/bu/umwelt/hydro/igw/content/transport/2_2_1_Adv_dis.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Tutorial 8" href="T_tut_01.html" />
+    <link rel="prev" title="Conservative Transport" href="2_1_Conservative_trans.html" />
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -47,7 +49,7 @@
 
 
 <!-- Opengraph tags -->
-<meta property="og:url"         content="https://tu-dresden.de/bu/umwelt/hydro/igw/content/transport/2_2_Adv_dis.html" />
+<meta property="og:url"         content="https://tu-dresden.de/bu/umwelt/hydro/igw/content/transport/2_2_1_Adv_dis.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Conservative transport Processes" />
 <meta property="og:description" content="Conservative transport Processes  Advection  <u>Advection</u>, also called convection, is the transport of components (matter or also energy) due to moving medi" />
@@ -102,8 +104,25 @@
 <li class="navbar-special">
 <p class="margin-caption">Transport in Groundwater</p>
 </li>
-  <li class="">
+  <li class="active">
     <a href="2_Transport_intro.html">Transport in groundwater</a>
+  <ul class="nav sidenav_l2">
+    <li class="">
+      <a href="2_1_Conservative_trans.html">Conservative Transport</a>
+    </li>
+    <li class="active">
+      <a href="">Conservative transport Processes</a>
+    </li>
+    <li class="">
+      <a href="T_tut_01.html">Tutorial 8</a>
+    </li>
+    <li class="">
+      <a href="2_2_Reactive_trans.html">Reactive Transport</a>
+    </li>
+    <li class="">
+      <a href="T_tut_02.html">Tutorial 10</a>
+    </li>
+  </ul>
   </li>
 </ul>
 </nav>
@@ -135,7 +154,7 @@
                 <!-- ipynb file if we had a myst markdown file -->
                 
                 <!-- Download raw file -->
-                <a class="dropdown-buttons" href="../../_sources/content/transport/2_2_Adv_dis.ipynb.txt"><button type="button" class="btn btn-secondary topbarbtn">.ipynb</button></a>
+                <a class="dropdown-buttons" href="../../_sources/content/transport/2_2_1_Adv_dis.ipynb.txt"><button type="button" class="btn btn-secondary topbarbtn">.ipynb</button></a>
                 <!-- Download PDF via print -->
                 <button type="button" id="download-print" class="btn btn-secondary topbarbtn" onClick="window.print()">.pdf</button>
             </div>
@@ -148,7 +167,7 @@
             <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"><i class="fas fa-rocket"></i><span class="topbar-button-text">Launch</span></button>
             <div class="dropdown-buttons">
                 
-                <a class="binder-button" href="https://mybinder.org/v2/gh/prabhasyadav/Groundwater-I/gh-pages?urlpath=tree/content/transport/2_2_Adv_dis.ipynb"><button type="button" class="btn btn-secondary topbarbtn"><img class="binder-button-logo" src="../../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                <a class="binder-button" href="https://mybinder.org/v2/gh/prabhasyadav/Groundwater-I/gh-pages?urlpath=tree/content/transport/2_2_1_Adv_dis.ipynb"><button type="button" class="btn btn-secondary topbarbtn"><img class="binder-button-logo" src="../../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
                 
                 
                 <button type="button" class="btn btn-secondary topbarbtn thebelab-launch-button" onclick="initThebelab()"><i class="fas fa-rocket"></i><span style="margin-left: .4em;">ThebeLab</span></button>
@@ -322,7 +341,7 @@ Simulating advective flow
 
 </pre></div>
 </div>
-<img alt="../../_images/2_2_Adv_dis_4_1.png" src="../../_images/2_2_Adv_dis_4_1.png" />
+<img alt="../../_images/2_2_1_Adv_dis_4_1.png" src="../../_images/2_2_1_Adv_dis_4_1.png" />
 </div>
 </div>
 </div>
@@ -481,7 +500,7 @@ Simulating mechanical dispersion
 You can change input values to see the effect
 </pre></div>
 </div>
-<img alt="../../_images/2_2_Adv_dis_11_1.png" src="../../_images/2_2_Adv_dis_11_1.png" />
+<img alt="../../_images/2_2_1_Adv_dis_11_1.png" src="../../_images/2_2_1_Adv_dis_11_1.png" />
 </div>
 </div>
 </div>
@@ -531,7 +550,7 @@ You can change input values to see the effect
 
 </pre></div>
 </div>
-<img alt="../../_images/2_2_Adv_dis_13_1.png" src="../../_images/2_2_Adv_dis_13_1.png" />
+<img alt="../../_images/2_2_1_Adv_dis_13_1.png" src="../../_images/2_2_1_Adv_dis_13_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -625,6 +644,8 @@ D_{hyd} = D_{mech} + D_p = \alpha \cdot v + D_p = \alpha \cdot v + n_e \cdot D
     
     <div class='prev-next-bottom'>
         
+    <a class='left-prev' id="prev-link" href="2_1_Conservative_trans.html" title="previous page">Conservative Transport</a>
+    <a class='right-next' id="next-link" href="T_tut_01.html" title="next page">Tutorial 8</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
