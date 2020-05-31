@@ -5,35 +5,37 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Markdown files &#8212; Groundwater I</title>
+    <title>Conservative Transport &#8212; Groundwater I</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-    <link href="_static/css/index.css" rel="stylesheet">
-    <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/sphinx-book-theme.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
-    <script src="_static/togglebutton.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/mystnb.js"></script>
-    <script src="_static/sphinx-book-theme.js"></script>
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script async="async" src="_static/thebelab.js"></script>
+    <script async="async" src="../../_static/thebelab.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="canonical" href="https://tu-dresden.de/bu/umwelt/hydro/igw/markdown.html" />
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
+    <link rel="canonical" href="https://tu-dresden.de/bu/umwelt/hydro/igw/content/transport/2_1_Conservative_trans.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Advection" href="2_2_Adv_dis.html" />
+    <link rel="prev" title="Transport in groundwater" href="2_Transport_intro.html" />
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -47,10 +49,10 @@
 
 
 <!-- Opengraph tags -->
-<meta property="og:url"         content="https://tu-dresden.de/bu/umwelt/hydro/igw/markdown.html" />
+<meta property="og:url"         content="https://tu-dresden.de/bu/umwelt/hydro/igw/content/transport/2_1_Conservative_trans.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Markdown files" />
-<meta property="og:description" content="Markdown files  Jupyter Book allows you to write your content directly in markdown files. If you’d like to include computational content with these markdown fil" />
+<meta property="og:title"       content="Conservative Transport" />
+<meta property="og:description" content="Conservative Transport  Let us start witht a groundwater contamination scenario.  <a href="fig1"></a><img src="images/T_f1.png" alt="Contamination scenrio" widt" />
 <meta property="og:image"       content="https://tu-dresden.de/bu/umwelt/hydro/igw/_static/logo3.png" />
 
 <meta name="twitter:card" content="summary">
@@ -66,9 +68,9 @@
 
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="index.html">
+<a class="navbar-brand text-wrap" href="../../index.html">
   
-  <img src="_static/logo3.png" class="logo" alt="logo">
+  <img src="../../_static/logo3.png" class="logo" alt="logo">
   
   
   <h1 class="site-logo" id="site-title">Groundwater I</h1>
@@ -76,7 +78,7 @@
 </a>
 </div>
 
-<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
@@ -85,25 +87,33 @@
   
   <ul class="nav sidenav_l1">
   <li class="">
-    <a href="content/intro.html">The Interactive Groundwater-I Book</a>
+    <a href="../intro.html">The Interactive Groundwater-I Book</a>
   </li>
 <li class="navbar-special">
 <p class="margin-caption">Background</p>
 </li>
   <li class="">
-    <a href="content/background/00_general.html">Course GW520 about?</a>
+    <a href="../background/00_general.html">Course GW520 about?</a>
   </li>
 <li class="navbar-special">
 <p class="margin-caption">Aquifer Properties and groundwater flow</p>
 </li>
   <li class="">
-    <a href="content/flow/10_flow_overview.html">Groundwater Flow</a>
+    <a href="../flow/10_flow_overview.html">Groundwater Flow</a>
   </li>
 <li class="navbar-special">
 <p class="margin-caption">Transport in Groundwater</p>
 </li>
-  <li class="">
-    <a href="content/transport/2_Transport_intro.html">Transport in groundwater</a>
+  <li class="active">
+    <a href="2_Transport_intro.html">Transport in groundwater</a>
+  <ul class="nav sidenav_l2">
+    <li class="active">
+      <a href="">Conservative Transport</a>
+    </li>
+    <li class="">
+      <a href="2_2_Adv_dis.html">Advection</a>
+    </li>
+  </ul>
   </li>
 </ul>
 </nav>
@@ -135,7 +145,7 @@
                 <!-- ipynb file if we had a myst markdown file -->
                 
                 <!-- Download raw file -->
-                <a class="dropdown-buttons" href="_sources/markdown.md.txt"><button type="button" class="btn btn-secondary topbarbtn">.md</button></a>
+                <a class="dropdown-buttons" href="../../_sources/content/transport/2_1_Conservative_trans.md.txt"><button type="button" class="btn btn-secondary topbarbtn">.md</button></a>
                 <!-- Download PDF via print -->
                 <button type="button" id="download-print" class="btn btn-secondary topbarbtn" onClick="window.print()">.pdf</button>
             </div>
@@ -166,21 +176,18 @@
         
               <div>
                 
-  <div class="section" id="markdown-files">
-<h1>Markdown files<a class="headerlink" href="#markdown-files" title="Permalink to this headline">¶</a></h1>
-<p>Jupyter Book allows you to write your content directly in markdown files.
-If you’d like to include computational content with these markdown files,
-use the following directive:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>```{execute}
-print(&quot;Here is some code to execute&quot;)
-```
-</pre></div>
-</div>
-<p>When your book is build, the contents of any <code class="docutils literal notranslate"><span class="pre">{execute}</span></code> blocks will be
-executed with your default Jupyter kernel, and their outputs will be displayed
-in-line with the rest of your content.</p>
-<p>For more information about executing computational content with Jupyter Book,
-see <a class="reference external" href="https://myst-nb.readthedocs.io/">The MyST-NB documentation</a>.</p>
+  <div class="section" id="conservative-transport">
+<h1>Conservative Transport<a class="headerlink" href="#conservative-transport" title="Permalink to this headline">¶</a></h1>
+<p>Let us start witht a groundwater contamination scenario.</p>
+<p><a href="fig1"></a><img src="images/T_f1.png" alt="Contamination scenrio" width="400" height="600"></p>
+<p>In the figure, the chemicals (contaminants) first enters the <em>vadose zone</em>, an unstatured part of the subsurface from the ground surface. The entry is faciliated with phenomenan such as rainfall. As only limited water are available and there are almost no continuous horizontal flow, the contaminants, mostly as a pure phase,  in this zone often travels vertically until it reaches the groundwater table - a boundary between an unstaturated and saturated subsurface. Beneath the water-table, the contaminants mixes with the flowing groundwater and spreads both vertically and horizontally along the saturated zone resulting to a development of a contaminant plume.</p>
+<p><strong>In this course we learn only of contamination in the saturated zone.</strong></p>
+<p>As was shown in the <a class="reference external" href="#fig1">fig1</a> (<u>will have to check if this linking works&lt;\u&gt;), the main process of conservative transport are:</p>
+<ul class="simple">
+<li><p>Advection/convection</p></li>
+<li><p>Dispersion</p></li>
+<li><p>Diffusion (pore)</p></li>
+</ul>
 </div>
 
     <script type="text/x-thebe-config">
@@ -196,7 +203,7 @@ see <a class="reference external" href="https://myst-nb.readthedocs.io/">The MyS
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "."
+            path: "content/transport"
         }
     }
     </script>
@@ -210,6 +217,8 @@ see <a class="reference external" href="https://myst-nb.readthedocs.io/">The MyS
     
     <div class='prev-next-bottom'>
         
+    <a class='left-prev' id="prev-link" href="2_Transport_intro.html" title="previous page">Transport in groundwater</a>
+    <a class='right-next' id="next-link" href="2_2_Adv_dis.html" title="next page">Advection</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
@@ -226,7 +235,7 @@ see <a class="reference external" href="https://myst-nb.readthedocs.io/">The MyS
       </div>
     </div>
 
-    <script src="_static/js/index.js"></script>
+    <script src="../../_static/js/index.js"></script>
     
   </body>
 </html>

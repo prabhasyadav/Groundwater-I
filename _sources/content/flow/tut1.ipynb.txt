@@ -25,37 +25,6 @@
   },
   {
    "cell_type": "markdown",
-   "metadata": {
-    "ExecuteTime": {
-     "end_time": "2020-05-27T19:53:32.681669Z",
-     "start_time": "2020-05-27T19:53:32.671637Z"
-    }
-   },
-   "source": [
-    "# Tutorial 1 #\n",
-    "\n",
-    " 1. **Tutorial problems on aquifer storage properties**\n",
-    " 2. **Homework problems on aquifer storage properties**\n",
-    "\n",
-    "\n",
-    "&nbsp;\n",
-    "\n",
-    "**Prabhas K Yadav**\n",
-    "\n",
-    "prabhas.yadav@tu-dresden.de\n",
-    "\n",
-    "\n",
-    "<font color=\"red\">Zi: IGW/E57 </font>\n",
-    "\n",
-    "<font color=\"red\">Tel: 0351-4634557  </font>\n",
-    "\n",
-    "---\n",
-    "\n",
-    "07.11.2019"
-   ]
-  },
-  {
-   "cell_type": "markdown",
    "metadata": {},
    "source": [
     "### Tutorial Problem 1: ###\n",

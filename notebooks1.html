@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
     <title>Tutorial 1: Aquifer Storage &#8212; Groundwater I</title>
@@ -98,6 +98,12 @@
 </li>
   <li class="">
     <a href="content/flow/10_flow_overview.html">Groundwater Flow</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Transport in Groundwater</p>
+</li>
+  <li class="">
+    <a href="content/transport/2_Transport_intro.html">Transport in groundwater</a>
   </li>
 </ul>
 </nav>
@@ -1594,12 +1600,12 @@ if (window.Jupyter !== undefined) {
 
 
 
-  <div class="bk-root" id="b6b2e06a-8db3-40c0-a391-eab89d3596a6" data-root-id="1001"></div>
+  <div class="bk-root" id="54a9aebf-0a24-4ae8-8045-a35cafde8d87" data-root-id="1001"></div>
 </div>
 <script type="application/javascript">(function(root) {
   function embed_document(root) {
-  var docs_json = {"b5c9614d-cb44-4885-9ef7-ef13ae6ca25a":{"roots":{"references":[{"attributes":{"css_classes":["markdown"],"margin":[5,5,5,5],"name":"Markdown00006","style":{"font-size":"14pt"},"text":"&lt;h3&gt;Tutorial Problem 1:&lt;/h3&gt;\n&lt;p&gt;The park called ,,Grosser Garten&amp;rsquo;&amp;lsquo; in Dresden is underlain by an unconfined aquifer consisting of \nalluvial deposits. How much additional water is stored under the park if groundwater levels \nrise by 3 m during a wet period?&lt;/p&gt;"},"id":"1002","type":"panel.models.markup.HTML"},{"attributes":{"client_comm_id":"119b168d6ba44a4c91de6e033e23c7b3","comm_id":"c1a47f52d57d45e4bb910c31b9a1b349","plot_id":"1001"},"id":"1004","type":"panel.models.comm_manager.CommManager"},{"attributes":{"margin":[5,5,5,5],"min_width":50,"name":"Spacer00008","width":50},"id":"1003","type":"Spacer"},{"attributes":{"children":[{"id":"1002"},{"id":"1003"}],"margin":[0,0,0,0],"name":"Row00009"},"id":"1001","type":"Row"}],"root_ids":["1001","1004"]},"title":"Bokeh Application","version":"2.0.1"}};
-  var render_items = [{"docid":"b5c9614d-cb44-4885-9ef7-ef13ae6ca25a","root_ids":["1001"],"roots":{"1001":"b6b2e06a-8db3-40c0-a391-eab89d3596a6"}}];
+  var docs_json = {"39997353-4307-4ffe-8076-ddb7bc2ec181":{"roots":{"references":[{"attributes":{"css_classes":["markdown"],"margin":[5,5,5,5],"name":"Markdown00006","style":{"font-size":"14pt"},"text":"&lt;h3&gt;Tutorial Problem 1:&lt;/h3&gt;\n&lt;p&gt;The park called ,,Grosser Garten&amp;rsquo;&amp;lsquo; in Dresden is underlain by an unconfined aquifer consisting of \nalluvial deposits. How much additional water is stored under the park if groundwater levels \nrise by 3 m during a wet period?&lt;/p&gt;"},"id":"1002","type":"panel.models.markup.HTML"},{"attributes":{"client_comm_id":"d544b9547dfb4e59be7f6996f1844c79","comm_id":"202296830bc4408ea92965fd9bd5b626","plot_id":"1001"},"id":"1004","type":"panel.models.comm_manager.CommManager"},{"attributes":{"margin":[5,5,5,5],"min_width":50,"name":"Spacer00008","width":50},"id":"1003","type":"Spacer"},{"attributes":{"children":[{"id":"1002"},{"id":"1003"}],"margin":[0,0,0,0],"name":"Row00009"},"id":"1001","type":"Row"}],"root_ids":["1001","1004"]},"title":"Bokeh Application","version":"2.0.1"}};
+  var render_items = [{"docid":"39997353-4307-4ffe-8076-ddb7bc2ec181","root_ids":["1001"],"roots":{"1001":"54a9aebf-0a24-4ae8-8045-a35cafde8d87"}}];
   root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
   }
 if (root.Bokeh !== undefined) {
@@ -1654,12 +1660,12 @@ if (root.Bokeh !== undefined) {
 
 
 
-  <div class="bk-root" id="4ec49c10-bf72-48c8-b503-af8dc5a6467b" data-root-id="1005"></div>
+  <div class="bk-root" id="0f53a74d-6ddf-4655-8a54-79d9087c4b78" data-root-id="1005"></div>
 </div>
 <script type="application/javascript">(function(root) {
   function embed_document(root) {
-  var docs_json = {"11a003ea-000b-4f0f-85a2-6a2d2c501f91":{"roots":{"references":[{"attributes":{"children":[{"id":"1006"},{"id":"1007"}],"margin":[0,0,0,0],"name":"Row00015"},"id":"1005","type":"Row"},{"attributes":{"css_classes":["markdown"],"margin":[5,5,5,5],"name":"Markdown00012","style":{"font-size":"14pt"},"text":"&lt;h3&gt;Tutorial Problem 1 \u2013 Solution&lt;/h3&gt;\n&lt;p&gt;&lt;strong&gt;For details check lecture slide: L02- 8&lt;/strong&gt;\n&lt;br&gt;&lt;br&gt;&lt;/p&gt;\n&lt;p&gt;The basic configuration of an unconfined aquifer:&lt;/p&gt;"},"id":"1006","type":"panel.models.markup.HTML"},{"attributes":{"margin":[5,5,5,5],"min_width":50,"name":"Spacer00014","width":50},"id":"1007","type":"Spacer"},{"attributes":{"client_comm_id":"876af670cb3c46d486d194fbc6f3a600","comm_id":"bf0bb7b914f845f2b86f2bd8637f933f","plot_id":"1005"},"id":"1008","type":"panel.models.comm_manager.CommManager"}],"root_ids":["1005","1008"]},"title":"Bokeh Application","version":"2.0.1"}};
-  var render_items = [{"docid":"11a003ea-000b-4f0f-85a2-6a2d2c501f91","root_ids":["1005"],"roots":{"1005":"4ec49c10-bf72-48c8-b503-af8dc5a6467b"}}];
+  var docs_json = {"386b6381-07c9-4693-bd8a-95e53cd37fd4":{"roots":{"references":[{"attributes":{"margin":[5,5,5,5],"min_width":50,"name":"Spacer00014","width":50},"id":"1007","type":"Spacer"},{"attributes":{"children":[{"id":"1006"},{"id":"1007"}],"margin":[0,0,0,0],"name":"Row00015"},"id":"1005","type":"Row"},{"attributes":{"css_classes":["markdown"],"margin":[5,5,5,5],"name":"Markdown00012","style":{"font-size":"14pt"},"text":"&lt;h3&gt;Tutorial Problem 1 \u2013 Solution&lt;/h3&gt;\n&lt;p&gt;&lt;strong&gt;For details check lecture slide: L02- 8&lt;/strong&gt;\n&lt;br&gt;&lt;br&gt;&lt;/p&gt;\n&lt;p&gt;The basic configuration of an unconfined aquifer:&lt;/p&gt;"},"id":"1006","type":"panel.models.markup.HTML"},{"attributes":{"client_comm_id":"196f05c1ecdf4317a1c4f6bfdfd876eb","comm_id":"8933ff4073404a7189f0863be4bbbcbb","plot_id":"1005"},"id":"1008","type":"panel.models.comm_manager.CommManager"}],"root_ids":["1005","1008"]},"title":"Bokeh Application","version":"2.0.1"}};
+  var render_items = [{"docid":"386b6381-07c9-4693-bd8a-95e53cd37fd4","root_ids":["1005"],"roots":{"1005":"0f53a74d-6ddf-4655-8a54-79d9087c4b78"}}];
   root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
   }
 if (root.Bokeh !== undefined) {
@@ -1742,12 +1748,12 @@ Additional water volume: 1.8E+06 m³
 
 
 
-  <div class="bk-root" id="2cc61232-ebd9-4c5c-a612-08b3a8798f3d" data-root-id="1009"></div>
+  <div class="bk-root" id="baf2ca66-07e5-45e0-982b-3b14ba402820" data-root-id="1009"></div>
 </div>
 <script type="application/javascript">(function(root) {
   function embed_document(root) {
-  var docs_json = {"1d1158e8-b4d3-4daa-b3d3-60047f79ec97":{"roots":{"references":[{"attributes":{"css_classes":["markdown"],"margin":[5,5,5,5],"name":"Markdown00018","style":{"font-size":"14pt"},"text":"&lt;h3&gt;Tutorial Problem 2:&lt;/h3&gt;\n&lt;p&gt;The lithological information derived from three boreholes is given in the figure below.\nTry to correlate the layers to obtain a 2D cross section of the subsurface structure.&lt;/p&gt;"},"id":"1011","type":"panel.models.markup.HTML"},{"attributes":{"client_comm_id":"48b8401bcafb4e549532379631a16817","comm_id":"f002fef841cb474c92deb37e112647ae","plot_id":"1009"},"id":"1013","type":"panel.models.comm_manager.CommManager"},{"attributes":{"css_classes":["markdown"],"margin":[5,5,5,5],"name":"Markdown00020","style":{"font-size":"14pt"},"text":"&lt;h3&gt;Tutorial Problem 2 \u2013 Solution&lt;/h3&gt;\n&lt;p&gt;&lt;strong&gt;For details check lecture slide: L03-15&lt;/strong&gt;.&lt;br&gt;&lt;/p&gt;\n&lt;p&gt;Few correlations between the layers are presented in the figure below:&lt;/p&gt;"},"id":"1012","type":"panel.models.markup.HTML"},{"attributes":{"children":[{"id":"1010"},{"id":"1012"}],"margin":[0,0,0,0],"name":"Column00023"},"id":"1009","type":"Column"},{"attributes":{"children":[{"id":"1011"}],"margin":[0,0,0,0],"name":"Row00022"},"id":"1010","type":"Row"}],"root_ids":["1009","1013"]},"title":"Bokeh Application","version":"2.0.1"}};
-  var render_items = [{"docid":"1d1158e8-b4d3-4daa-b3d3-60047f79ec97","root_ids":["1009"],"roots":{"1009":"2cc61232-ebd9-4c5c-a612-08b3a8798f3d"}}];
+  var docs_json = {"1ab493aa-8dbc-4d3b-8840-2ae4b8443b9c":{"roots":{"references":[{"attributes":{"css_classes":["markdown"],"margin":[5,5,5,5],"name":"Markdown00020","style":{"font-size":"14pt"},"text":"&lt;h3&gt;Tutorial Problem 2 \u2013 Solution&lt;/h3&gt;\n&lt;p&gt;&lt;strong&gt;For details check lecture slide: L03-15&lt;/strong&gt;.&lt;br&gt;&lt;/p&gt;\n&lt;p&gt;Few correlations between the layers are presented in the figure below:&lt;/p&gt;"},"id":"1012","type":"panel.models.markup.HTML"},{"attributes":{"children":[{"id":"1011"}],"margin":[0,0,0,0],"name":"Row00022"},"id":"1010","type":"Row"},{"attributes":{"children":[{"id":"1010"},{"id":"1012"}],"margin":[0,0,0,0],"name":"Column00023"},"id":"1009","type":"Column"},{"attributes":{"client_comm_id":"0052863eaab241749f43db5193c7ecf4","comm_id":"9c55f89370454c8a8eae5da076888275","plot_id":"1009"},"id":"1013","type":"panel.models.comm_manager.CommManager"},{"attributes":{"css_classes":["markdown"],"margin":[5,5,5,5],"name":"Markdown00018","style":{"font-size":"14pt"},"text":"&lt;h3&gt;Tutorial Problem 2:&lt;/h3&gt;\n&lt;p&gt;The lithological information derived from three boreholes is given in the figure below.\nTry to correlate the layers to obtain a 2D cross section of the subsurface structure.&lt;/p&gt;"},"id":"1011","type":"panel.models.markup.HTML"}],"root_ids":["1009","1013"]},"title":"Bokeh Application","version":"2.0.1"}};
+  var render_items = [{"docid":"1ab493aa-8dbc-4d3b-8840-2ae4b8443b9c","root_ids":["1009"],"roots":{"1009":"baf2ca66-07e5-45e0-982b-3b14ba402820"}}];
   root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
   }
 if (root.Bokeh !== undefined) {
@@ -1834,12 +1840,12 @@ if (root.Bokeh !== undefined) {
 
 
 
-  <div class="bk-root" id="4fb6c4fa-f331-4366-8c39-e7b0fe55494a" data-root-id="1014"></div>
+  <div class="bk-root" id="dae78f77-0637-473e-808b-beb11d23d45e" data-root-id="1014"></div>
 </div>
 <script type="application/javascript">(function(root) {
   function embed_document(root) {
-  var docs_json = {"2ccdee45-b4d0-49c5-98fb-63842ebffa05":{"roots":{"references":[{"attributes":{"children":[{"id":"1015"},{"id":"1016"},{"id":"1017"}],"margin":[0,0,0,0],"name":"Column00033"},"id":"1014","type":"Column"},{"attributes":{"css_classes":["markdown"],"margin":[5,5,5,5],"name":"Markdown00028","style":{"font-size":"14pt"},"text":"&lt;h3&gt;Tutorial Problem 3 \u2013 Solution&lt;/h3&gt;\n&lt;p&gt;&lt;strong&gt;For details check lecture slide: L03-28&lt;/strong&gt; &lt;br&gt;&lt;br&gt;&lt;/p&gt;\n&lt;p&gt;Basic configuration of a confined aquifer:\n&lt;br&gt;&lt;br&gt;&lt;/p&gt;"},"id":"1016","type":"panel.models.markup.HTML"},{"attributes":{"css_classes":["markdown"],"margin":[5,5,5,5],"name":"Markdown00026","style":{"font-size":"14pt"},"text":"&lt;h2&gt;Tutorial Problem 3:&lt;/h2&gt;\n&lt;p&gt;This problem addresses a confined aquifer with a thickness of 61 m and a specific storage of \n1.2 X 10&lt;sup&gt;-5&lt;/sup&gt; 1/m. Due to water injection the pressure head rises by 0.75 m on average over an area 230 m in diameter.\nHow much water is injected?&lt;/p&gt;","width":900},"id":"1015","type":"panel.models.markup.HTML"},{"attributes":{"margin":[5,5,5,5],"name":"LaTeX00030","style":{"font-size":"14pt"},"text":"\nspecific storage: <br> $S_s = \\frac{\\Delta V_w}{V_T \\cdot \\Delta \\psi } $ <br>\nwith <br>\n$\\Delta V_w$ = change in water volume [L$^3$] <br>\n$V_T$ = total volume [L$^3$]<br>\n$\\Delta \\psi$ = change in pressure head [L]\n"},"id":"1018","type":"panel.models.katex.KaTeX"},{"attributes":{"children":[{"id":"1018"}],"margin":[0,0,0,0],"name":"Row00032"},"id":"1017","type":"Row"},{"attributes":{"client_comm_id":"3e8262de942840f9a958fda602a23af9","comm_id":"3b0e60fa3eed49728a49b848cfe9df94","plot_id":"1014"},"id":"1019","type":"panel.models.comm_manager.CommManager"}],"root_ids":["1014","1019"]},"title":"Bokeh Application","version":"2.0.1"}};
-  var render_items = [{"docid":"2ccdee45-b4d0-49c5-98fb-63842ebffa05","root_ids":["1014"],"roots":{"1014":"4fb6c4fa-f331-4366-8c39-e7b0fe55494a"}}];
+  var docs_json = {"3a4256d1-d80b-4af8-bfc7-f43352ec3fbc":{"roots":{"references":[{"attributes":{"css_classes":["markdown"],"margin":[5,5,5,5],"name":"Markdown00028","style":{"font-size":"14pt"},"text":"&lt;h3&gt;Tutorial Problem 3 \u2013 Solution&lt;/h3&gt;\n&lt;p&gt;&lt;strong&gt;For details check lecture slide: L03-28&lt;/strong&gt; &lt;br&gt;&lt;br&gt;&lt;/p&gt;\n&lt;p&gt;Basic configuration of a confined aquifer:\n&lt;br&gt;&lt;br&gt;&lt;/p&gt;"},"id":"1016","type":"panel.models.markup.HTML"},{"attributes":{"children":[{"id":"1015"},{"id":"1016"},{"id":"1017"}],"margin":[0,0,0,0],"name":"Column00033"},"id":"1014","type":"Column"},{"attributes":{"css_classes":["markdown"],"margin":[5,5,5,5],"name":"Markdown00026","style":{"font-size":"14pt"},"text":"&lt;h2&gt;Tutorial Problem 3:&lt;/h2&gt;\n&lt;p&gt;This problem addresses a confined aquifer with a thickness of 61 m and a specific storage of \n1.2 X 10&lt;sup&gt;-5&lt;/sup&gt; 1/m. Due to water injection the pressure head rises by 0.75 m on average over an area 230 m in diameter.\nHow much water is injected?&lt;/p&gt;","width":900},"id":"1015","type":"panel.models.markup.HTML"},{"attributes":{"margin":[5,5,5,5],"name":"LaTeX00030","style":{"font-size":"14pt"},"text":"\nspecific storage: <br> $S_s = \\frac{\\Delta V_w}{V_T \\cdot \\Delta \\psi } $ <br>\nwith <br>\n$\\Delta V_w$ = change in water volume [L$^3$] <br>\n$V_T$ = total volume [L$^3$]<br>\n$\\Delta \\psi$ = change in pressure head [L]\n"},"id":"1018","type":"panel.models.katex.KaTeX"},{"attributes":{"client_comm_id":"33be9d183e184394b44c16f847b46887","comm_id":"a1c0131bba814e23bb57c67bb1a258ce","plot_id":"1014"},"id":"1019","type":"panel.models.comm_manager.CommManager"},{"attributes":{"children":[{"id":"1018"}],"margin":[0,0,0,0],"name":"Row00032"},"id":"1017","type":"Row"}],"root_ids":["1014","1019"]},"title":"Bokeh Application","version":"2.0.1"}};
+  var render_items = [{"docid":"3a4256d1-d80b-4af8-bfc7-f43352ec3fbc","root_ids":["1014"],"roots":{"1014":"dae78f77-0637-473e-808b-beb11d23d45e"}}];
   root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
   }
 if (root.Bokeh !== undefined) {
@@ -1908,12 +1914,12 @@ The Additional Water is 228.10 m³
 
 
 
-  <div class="bk-root" id="39777686-1c52-4484-a625-cc1255037312" data-root-id="1020"></div>
+  <div class="bk-root" id="e6485ac6-d8ca-4513-8177-0ede20cdd3b4" data-root-id="1020"></div>
 </div>
 <script type="application/javascript">(function(root) {
   function embed_document(root) {
-  var docs_json = {"cd6d8711-e439-402b-a16c-0ba569806757":{"roots":{"references":[{"attributes":{"client_comm_id":"316d22e867f84873af14b3caf9fad91e","comm_id":"1349166f7517478fa51106062cac1f77","plot_id":"1020"},"id":"1021","type":"panel.models.comm_manager.CommManager"},{"attributes":{"css_classes":["markdown"],"margin":[5,5,5,5],"name":"Markdown00036","style":{"font-size":"13pt"},"text":"&lt;h2&gt;Tutorial Problem 4:&lt;/h2&gt;\n&lt;p&gt;We consider an unconfined aquifer with a storage coefficient of 0.19. Water will be the change\nin water volume if the following drawdowns are observed in four sub-areas in a dry period:&lt;/p&gt;","width":700},"id":"1020","type":"panel.models.markup.HTML"}],"root_ids":["1020","1021"]},"title":"Bokeh Application","version":"2.0.1"}};
-  var render_items = [{"docid":"cd6d8711-e439-402b-a16c-0ba569806757","root_ids":["1020"],"roots":{"1020":"39777686-1c52-4484-a625-cc1255037312"}}];
+  var docs_json = {"27f82645-18b8-4292-aadc-d7dc55d75e4f":{"roots":{"references":[{"attributes":{"client_comm_id":"1b160ff187204f50b9d1f41fda55ff6a","comm_id":"c8dc6bd380f14b89a13488f461f71a70","plot_id":"1020"},"id":"1021","type":"panel.models.comm_manager.CommManager"},{"attributes":{"css_classes":["markdown"],"margin":[5,5,5,5],"name":"Markdown00036","style":{"font-size":"13pt"},"text":"&lt;h2&gt;Tutorial Problem 4:&lt;/h2&gt;\n&lt;p&gt;We consider an unconfined aquifer with a storage coefficient of 0.19. Water will be the change\nin water volume if the following drawdowns are observed in four sub-areas in a dry period:&lt;/p&gt;","width":700},"id":"1020","type":"panel.models.markup.HTML"}],"root_ids":["1020","1021"]},"title":"Bokeh Application","version":"2.0.1"}};
+  var render_items = [{"docid":"27f82645-18b8-4292-aadc-d7dc55d75e4f","root_ids":["1020"],"roots":{"1020":"e6485ac6-d8ca-4513-8177-0ede20cdd3b4"}}];
   root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
   }
 if (root.Bokeh !== undefined) {
@@ -1950,7 +1956,7 @@ if (root.Bokeh !== undefined) {
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "aba0cf2276634e7bbcb27bd8ba9f56e0"}
+{"version_major": 2, "version_minor": 0, "model_id": "a7709f724526486588f436a234e705b4"}
 </script></div>
 </div>
 <div class="section" id="tutorial-problem-4-solution">
@@ -1989,7 +1995,7 @@ S = S_s \times m
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "8774b1e34fe4477a99f2ea5ef6df5261"}
+{"version_major": 2, "version_minor": 0, "model_id": "9e5c1762f053413baf84843a9d8409cf"}
 </script></div>
 </div>
 </div>
@@ -2108,7 +2114,7 @@ The aquifer is confined (storage coefficient 0.0005).</p>
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "094a0577ad51407f90ca9cea949a0b89"}
+{"version_major": 2, "version_minor": 0, "model_id": "6d1f64861721427d9916438c857c2b91"}
 </script></div>
 </div>
 </div>
@@ -2147,7 +2153,7 @@ The aquifer is confined (storage coefficient 0.0005).</p>
   <div class="container">
     <p>
           &copy; Copyright 2020.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.3.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>
 </footer>
