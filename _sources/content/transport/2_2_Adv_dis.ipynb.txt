@@ -14,6 +14,8 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
+    "# Conservative transport Processes #\n",
+    "\n",
     "## Advection ##\n",
     "\n",
     "<u>Advection</u>, also called **convection**, is the transport of components (matter or also energy) due to moving medium. The moving medium, i.e., _a carrier_ is, usually groundwater. Thus, quantities that characterizes flow also characterizes advective transport.\n",
@@ -27,7 +29,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "### 1D Advection and Advective mass rate ###\n",
+    "### 1D Advection and advective mass rate ###\n",
     "\n",
     "2D studies are more often the case used in exploring groundwater and its processes. 1D studies can also be sufficient to understand the **flow** dominated processes such as advection. Also, 1D study is more suitable in lab column studies, as often length of pipes are many times larger that its diameter. For advection, considering 1D pipe flow, to be considered are:\n",
     "\n",
@@ -179,7 +181,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "### Mechanical dispersion ###\n",
+    "## Mechanical dispersion ##\n",
     "\n",
     "**Mechanical dispersion** can result due to alone or combination of several porous medium and flow hydraulics properties. In general the following three reasons are considered when explaining the mechanical dispersion process:\n",
     "\n",
@@ -357,7 +359,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "### 1D Diffusion ###\n",
+    "## 1D Diffusion ##\n",
     "\n",
     "Contrasting with the advection and mechanical dispersion - mostly a flow influenced transport processes, the **diffusion** led transport depends on **concentration gradient**, i.e., flow is not required for transport.\n",
     "\n",
