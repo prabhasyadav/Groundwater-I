@@ -1,4 +1,8 @@
-#  Groundwater flow equation
+#  Lecture 6 - Groundwater flow equation
+
+## Prof. Liedl/Prof. Werth/Prof. Chahar/Prabhas is to add the text contents.
+## Anne/Sophie is to add the numerical contents
+
 
 IPYNB code for 
 

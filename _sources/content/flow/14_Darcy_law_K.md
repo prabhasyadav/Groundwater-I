@@ -1,4 +1,8 @@
-# Darcy's Law and Conductivity
+# Lecture 4 - Darcy's Law and Conductivity
+
+## Prof. Liedl/Prof. Chahar is to add the text contents.
+## Anne/Sophie is to add the numerical contents.
+
 
 
 ## Definition
