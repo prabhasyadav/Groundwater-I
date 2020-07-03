@@ -20,12 +20,17 @@ The entire contents can be printed as a pdf.
 
 The contents are developed by (not in any order):
 
-1. Prabhas K Yadav (TU Dresden)
-2. Thomas Reimann (TU Dresden)
-3. Sandhya Birla (Indian Institute of Technology Delhi)
-4. Anton Köhler
-5. Abiral Poudel
-
+1. Prof. Rudolf Liedl (TU Dresden)
+2. Prof. Charles Werth (Uni-Texas Austin, US)
+3. Prof. B. R. Chahar (Indian Institute of Technology Delhi, Delhi)
+4. Dr.rer. nat. Prabhas K Yadav (TU Dresden)
+5. Dr. Ing. Thomas Reimann (TU Dresden)
+6. M.Sc. Hanieh Mehrdad (Student Assistant/Numerical contents- TU Dresden)
+7. Anton Köhler (Student Assistant/Model contents - TU Dresden)
+8. Abiral Poudel (Student Assistant/CS-IT support  - TU Dresden)
+9. Sophie Pförtner (Student Assistant/Numerical content - TU Dresden)
+10. Anne  Pförtner (Student Assistant/Numerical content - TU Dresden)
+11. Alexander Oy (Student Assistant/Numerical content and CS-IT Support - TU Dresden)
 
 
 ## Acknowledgements
