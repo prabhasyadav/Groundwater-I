@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tutorial 1: Aquifer Storage &#8212; Groundwater I</title>
+    <title>Tutorial 7: MODFLOW using FLOPY &#8212; Groundwater I</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
@@ -35,7 +35,7 @@
     <link rel="canonical" href="https://tu-dresden.de/bu/umwelt/hydro/igw/content/model/T7_MODFLOW_FLOPY.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="Groundwater Flow" href="34_modeling_approaches.html" />
+    <link rel="prev" title="Lecture 14 - Modeling approaches" href="34_modeling_approaches.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -44,8 +44,8 @@
 <!-- Opengraph tags -->
 <meta property="og:url"         content="https://tu-dresden.de/bu/umwelt/hydro/igw/content/model/T7_MODFLOW_FLOPY.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Tutorial 1: Aquifer Storage" />
-<meta property="og:description" content="Tutorial 1: Aquifer Storage  import numpy as np import matplotlib.pyplot as plt import pandas as pd  from ipywidgets import Button, Layout import ipysheet as ip" />
+<meta property="og:title"       content="Tutorial 7: MODFLOW using FLOPY" />
+<meta property="og:description" content="Tutorial 7: MODFLOW using FLOPY  import numpy as np import matplotlib.pyplot as plt import pandas as pd  from ipywidgets import Button, Layout import ipysheet a" />
 <meta property="og:image"       content="https://tu-dresden.de/bu/umwelt/hydro/igw/_static/logo3.png" />
 
 <meta name="twitter:card" content="summary">
@@ -104,22 +104,22 @@
 <p class="margin-caption">Groundwater Modeling</p>
 </li>
   <li class="active">
-    <a href="30_model_intro.html">Groundwater Flow</a>
+    <a href="30_model_intro.html">Model Introduction</a>
   <ul class="nav sidenav_l2">
     <li class="">
-      <a href="31_model_type.html">Groundwater Flow</a>
+      <a href="31_model_type.html">Lecture 11 - Groundwater Model types & Solution</a>
     </li>
     <li class="">
-      <a href="32_FD_model.html">Groundwater Flow</a>
+      <a href="32_FD_model.html">Lecture 12 - Finite Difference (1D & 2D)</a>
     </li>
     <li class="">
-      <a href="33_iterative_method.html">Groundwater Flow</a>
+      <a href="33_iterative_method.html">Lecture 13 - Iterative methods in GW Modeling</a>
     </li>
     <li class="">
-      <a href="34_modeling_approaches.html">Groundwater Flow</a>
+      <a href="34_modeling_approaches.html">Lecture 14 - Modeling approaches</a>
     </li>
     <li class="active">
-      <a href="">Tutorial 1: Aquifer Storage</a>
+      <a href="">Tutorial 7: MODFLOW using FLOPY</a>
     </li>
   </ul>
   </li>
@@ -204,8 +204,8 @@
         
               <div>
                 
-  <div class="section" id="tutorial-1-aquifer-storage">
-<h1>Tutorial 1: Aquifer Storage<a class="headerlink" href="#tutorial-1-aquifer-storage" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="tutorial-7-modflow-using-flopy">
+<h1>Tutorial 7: MODFLOW using FLOPY<a class="headerlink" href="#tutorial-7-modflow-using-flopy" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -1651,572 +1651,8 @@ if (window.Jupyter !== undefined) {
 }
 </script></div>
 </div>
+<p>Anton will be adding the contents here.</p>
 </div>
-<div class="section" id="tutorial-1">
-<h1>Tutorial 1<a class="headerlink" href="#tutorial-1" title="Permalink to this headline">¶</a></h1>
-<ol class="simple">
-<li><p><strong>Tutorial problems on aquifer storage properties</strong></p></li>
-<li><p><strong>Homework problems on aquifer storage properties</strong></p></li>
-</ol>
-<p> </p>
-<p><strong>Prabhas K Yadav</strong></p>
-<p>prabhas.yadav&#64;tu-dresden.de</p>
-<p><font color="red">Zi: IGW/E57 </font></p>
-<p><font color="red">Tel: 0351-4634557  </font></p>
-<hr class="docutils" />
-<p>07.11.2019</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
-<span class="n">r1_1</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">pane</span><span class="o">.</span><span class="n">Markdown</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">### Tutorial Problem 1: </span>
-
-<span class="s2">The park called ,,Grosser Garten&#39;&#39; in Dresden is underlain by an unconfined aquifer consisting of </span>
-<span class="s2">alluvial deposits. How much additional water is stored under the park if groundwater levels </span>
-<span class="s2">rise by 3 m during a wet period?</span>
-<span class="s2">&quot;&quot;&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;font-size&#39;</span><span class="p">:</span> <span class="s1">&#39;14pt&#39;</span><span class="p">})</span>
-
-<span class="n">spacer</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">Spacer</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span> 
-
-<span class="c1">#r1_2 = pn.pane.PNG(&quot;images/T01_TP1.png&quot;, width=500)</span>
-
-<span class="c1">#pn.Row(r1_1,spacer, r1_2)</span>
-<span class="n">pn</span><span class="o">.</span><span class="n">Row</span><span class="p">(</span><span class="n">r1_1</span><span class="p">,</span><span class="n">spacer</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div id='1001'>
-
-
-
-
-
-  <div class="bk-root" id="5405bc5d-2826-4fb8-9bae-fccfe5127a11" data-root-id="1001"></div>
-</div>
-<script type="application/javascript">(function(root) {
-  function embed_document(root) {
-  var docs_json = {"cdd34fcb-c131-48d0-ae4c-c3563a9bce8d":{"roots":{"references":[{"attributes":{"margin":[5,5,5,5],"min_width":50,"name":"Spacer00008","width":50},"id":"1003","type":"Spacer"},{"attributes":{"children":[{"id":"1002"},{"id":"1003"}],"margin":[0,0,0,0],"name":"Row00009"},"id":"1001","type":"Row"},{"attributes":{"css_classes":["markdown"],"margin":[5,5,5,5],"name":"Markdown00006","style":{"font-size":"14pt"},"text":"&lt;h3&gt;Tutorial Problem 1:&lt;/h3&gt;\n&lt;p&gt;The park called ,,Grosser Garten&amp;rsquo;&amp;lsquo; in Dresden is underlain by an unconfined aquifer consisting of \nalluvial deposits. How much additional water is stored under the park if groundwater levels \nrise by 3 m during a wet period?&lt;/p&gt;"},"id":"1002","type":"panel.models.markup.HTML"},{"attributes":{"client_comm_id":"c55cee554c264b5ba03373fb93000bcc","comm_id":"4c59f98cf5a4441b861971748986b4a7","plot_id":"1001"},"id":"1004","type":"panel.models.comm_manager.CommManager"}],"root_ids":["1001","1004"]},"title":"Bokeh Application","version":"2.1.0"}};
-  var render_items = [{"docid":"cdd34fcb-c131-48d0-ae4c-c3563a9bce8d","root_ids":["1001"],"roots":{"1001":"5405bc5d-2826-4fb8-9bae-fccfe5127a11"}}];
-  root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
-  }
-if (root.Bokeh !== undefined) {
-    embed_document(root);
-  } else {
-    var attempts = 0;
-    var timer = setInterval(function(root) {
-      if (root.Bokeh !== undefined) {
-        clearInterval(timer);
-        embed_document(root);
-      } else if (document.readyState == "complete") {
-        attempts++;
-        if (attempts > 100) {
-          clearInterval(timer);
-          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
-        }
-      }
-    }, 10, root)
-  }
-})(window);</script></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
-<span class="n">r1_3</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">pane</span><span class="o">.</span><span class="n">Markdown</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
-
-<span class="s2">### Tutorial Problem 1 – Solution ###</span>
-
-
-<span class="s2">**For details check lecture slide: L02- 8**</span>
-<span class="s2">&lt;br&gt;&lt;br&gt;</span>
-
-<span class="s2">The basic configuration of an unconfined aquifer:</span>
-
-<span class="s2">&quot;&quot;&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;font-size&#39;</span><span class="p">:</span> <span class="s1">&#39;14pt&#39;</span><span class="p">})</span>
-
-<span class="n">spacer</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">Spacer</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span> 
-
-<span class="c1">#r1_4 = pn.pane.PNG(&quot;images/T01_TP1_2.png&quot;, width=600)</span>
-
-<span class="c1">#pn.Row(r1_3,spacer, r1_4)  </span>
-<span class="n">pn</span><span class="o">.</span><span class="n">Row</span><span class="p">(</span><span class="n">r1_3</span><span class="p">,</span><span class="n">spacer</span><span class="p">)</span>
-
-<span class="c1">#&lt;img src=&quot;images/T01_TP1_2.PNG&quot; alt=&quot;Grosser Garten Map&quot;  width=&quot;100%&quot; height=&quot;100%&quot; &gt; </span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div id='1005'>
-
-
-
-
-
-  <div class="bk-root" id="b92235b0-c45b-4b5a-964e-deaf7af853b3" data-root-id="1005"></div>
-</div>
-<script type="application/javascript">(function(root) {
-  function embed_document(root) {
-  var docs_json = {"bc966f47-bde2-4422-8b5e-649a3ced5c3d":{"roots":{"references":[{"attributes":{"children":[{"id":"1006"},{"id":"1007"}],"margin":[0,0,0,0],"name":"Row00015"},"id":"1005","type":"Row"},{"attributes":{"margin":[5,5,5,5],"min_width":50,"name":"Spacer00014","width":50},"id":"1007","type":"Spacer"},{"attributes":{"css_classes":["markdown"],"margin":[5,5,5,5],"name":"Markdown00012","style":{"font-size":"14pt"},"text":"&lt;h3&gt;Tutorial Problem 1 \u2013 Solution&lt;/h3&gt;\n&lt;p&gt;&lt;strong&gt;For details check lecture slide: L02- 8&lt;/strong&gt;\n&lt;br&gt;&lt;br&gt;&lt;/p&gt;\n&lt;p&gt;The basic configuration of an unconfined aquifer:&lt;/p&gt;"},"id":"1006","type":"panel.models.markup.HTML"},{"attributes":{"client_comm_id":"662ff5577d8b452596fa16b2620a7446","comm_id":"07e76a1453a04fd08d56c69f55844642","plot_id":"1005"},"id":"1008","type":"panel.models.comm_manager.CommManager"}],"root_ids":["1005","1008"]},"title":"Bokeh Application","version":"2.1.0"}};
-  var render_items = [{"docid":"bc966f47-bde2-4422-8b5e-649a3ced5c3d","root_ids":["1005"],"roots":{"1005":"b92235b0-c45b-4b5a-964e-deaf7af853b3"}}];
-  root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
-  }
-if (root.Bokeh !== undefined) {
-    embed_document(root);
-  } else {
-    var attempts = 0;
-    var timer = setInterval(function(root) {
-      if (root.Bokeh !== undefined) {
-        clearInterval(timer);
-        embed_document(root);
-      } else if (document.readyState == "complete") {
-        attempts++;
-        if (attempts > 100) {
-          clearInterval(timer);
-          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
-        }
-      }
-    }, 10, root)
-  }
-})(window);</script></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The given information of the problem are</span>
-
-<span class="n">L</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1"># km as length of garten</span>
-<span class="n">W</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># km as Width of garten</span>
-<span class="n">DP</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1"># m change in pressure head</span>
-<span class="n">n</span> <span class="o">=</span> <span class="mf">0.3</span> <span class="c1"># porosity that we assume to be 30%</span>
-
-<span class="n">A</span> <span class="o">=</span> <span class="n">L</span> <span class="o">*</span> <span class="n">W</span> <span class="o">*</span><span class="mf">1e6</span> <span class="c1"># m^2, Area unit convered.</span>
-<span class="n">DV</span> <span class="o">=</span> <span class="n">A</span> <span class="o">*</span> <span class="n">DP</span> <span class="c1"># m^3, increase in total volume due to change in pressure head</span>
-<span class="n">AW</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">DV</span> <span class="c1"># m^3, additional Water volumne</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Park Area is </span><span class="si">{0:1.1E}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">A</span><span class="p">),</span><span class="s2">&quot;m</span><span class="se">\u00b2</span><span class="s2">&quot;</span><span class="p">)</span>  
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Increase in total volume: </span><span class="si">{0:1.1E}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">DV</span><span class="p">),</span><span class="s2">&quot;m</span><span class="se">\u00b3</span><span class="s2">&quot;</span><span class="p">)</span> 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Additional water volume: </span><span class="si">{0:1.1E}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">AW</span><span class="p">),</span><span class="s2">&quot;m</span><span class="se">\u00b3</span><span class="s2">&quot;</span><span class="p">)</span> 
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Park Area is 2.0E+06 m²
-Increase in total volume: 6.0E+06 m³
-Additional water volume: 1.8E+06 m³
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
-<span class="n">r2_1</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">pane</span><span class="o">.</span><span class="n">Markdown</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
-
-<span class="s2">### Tutorial Problem 2:</span>
-
-<span class="s2">The lithological information derived from three boreholes is given in the figure below.</span>
-<span class="s2">Try to correlate the layers to obtain a 2D cross section of the subsurface structure.</span>
-<span class="s2">&quot;&quot;&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;font-size&#39;</span><span class="p">:</span> <span class="s1">&#39;14pt&#39;</span><span class="p">})</span>
-
-<span class="c1">#r2_2 = pn.pane.PNG(&quot;images/T01_TP2_1.png&quot;, width=400)</span>
-
-<span class="n">r2_3</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">pane</span><span class="o">.</span><span class="n">Markdown</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">### Tutorial Problem 2 – Solution ###</span>
-
-<span class="s2">**For details check lecture slide: L03-15**.&lt;br&gt;</span>
-
-<span class="s2">Few correlations between the layers are presented in the figure below:</span>
-<span class="s2">&quot;&quot;&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;font-size&#39;</span><span class="p">:</span> <span class="s1">&#39;14pt&#39;</span><span class="p">})</span>
-
-<span class="c1">#R1 = pn.Row(r2_1, r2_2) </span>
-<span class="n">R1</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">Row</span><span class="p">(</span><span class="n">r2_1</span><span class="p">)</span> 
-<span class="n">pn</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">R1</span><span class="p">,</span> <span class="n">r2_3</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div id='1009'>
-
-
-
-
-
-  <div class="bk-root" id="b1559622-79bb-477e-962d-9c40061d67b2" data-root-id="1009"></div>
-</div>
-<script type="application/javascript">(function(root) {
-  function embed_document(root) {
-  var docs_json = {"2f030e2d-3077-486b-89e6-d3401b3360d6":{"roots":{"references":[{"attributes":{"children":[{"id":"1010"},{"id":"1012"}],"margin":[0,0,0,0],"name":"Column00023"},"id":"1009","type":"Column"},{"attributes":{"children":[{"id":"1011"}],"margin":[0,0,0,0],"name":"Row00022"},"id":"1010","type":"Row"},{"attributes":{"client_comm_id":"f7deeb01559a4b5d80071ab3d6c18d96","comm_id":"65cdba8539f4458784b24d25a0702727","plot_id":"1009"},"id":"1013","type":"panel.models.comm_manager.CommManager"},{"attributes":{"css_classes":["markdown"],"margin":[5,5,5,5],"name":"Markdown00020","style":{"font-size":"14pt"},"text":"&lt;h3&gt;Tutorial Problem 2 \u2013 Solution&lt;/h3&gt;\n&lt;p&gt;&lt;strong&gt;For details check lecture slide: L03-15&lt;/strong&gt;.&lt;br&gt;&lt;/p&gt;\n&lt;p&gt;Few correlations between the layers are presented in the figure below:&lt;/p&gt;"},"id":"1012","type":"panel.models.markup.HTML"},{"attributes":{"css_classes":["markdown"],"margin":[5,5,5,5],"name":"Markdown00018","style":{"font-size":"14pt"},"text":"&lt;h3&gt;Tutorial Problem 2:&lt;/h3&gt;\n&lt;p&gt;The lithological information derived from three boreholes is given in the figure below.\nTry to correlate the layers to obtain a 2D cross section of the subsurface structure.&lt;/p&gt;"},"id":"1011","type":"panel.models.markup.HTML"}],"root_ids":["1009","1013"]},"title":"Bokeh Application","version":"2.1.0"}};
-  var render_items = [{"docid":"2f030e2d-3077-486b-89e6-d3401b3360d6","root_ids":["1009"],"roots":{"1009":"b1559622-79bb-477e-962d-9c40061d67b2"}}];
-  root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
-  }
-if (root.Bokeh !== undefined) {
-    embed_document(root);
-  } else {
-    var attempts = 0;
-    var timer = setInterval(function(root) {
-      if (root.Bokeh !== undefined) {
-        clearInterval(timer);
-        embed_document(root);
-      } else if (document.readyState == "complete") {
-        attempts++;
-        if (attempts > 100) {
-          clearInterval(timer);
-          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
-        }
-      }
-    }, 10, root)
-  }
-})(window);</script></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#r2_2.object = &quot;images/T01_TP2_2.png&quot; </span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#r2_2.object = &quot;images/T01_TP2_3.png&quot; </span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#r2_2.object = &quot;images/T01_TP2_4.png&quot; </span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
-<span class="n">r3_1</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">pane</span><span class="o">.</span><span class="n">Markdown</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">## Tutorial Problem 3:  ##</span>
-
-<span class="s2">This problem addresses a confined aquifer with a thickness of 61 m and a specific storage of </span>
-<span class="s2">1.2 X 10&lt;sup&gt;-5&lt;/sup&gt; 1/m. Due to water injection the pressure head rises by 0.75 m on average over an area 230 m in diameter.</span>
-<span class="s2">How much water is injected?</span>
-
-<span class="s2">&quot;&quot;&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">900</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;font-size&#39;</span><span class="p">:</span> <span class="s1">&#39;14pt&#39;</span><span class="p">})</span> 
-
-<span class="n">r3_2</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">pane</span><span class="o">.</span><span class="n">Markdown</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">### Tutorial Problem 3 – Solution ###</span>
-
-<span class="s2">**For details check lecture slide: L03-28** &lt;br&gt;&lt;br&gt;</span>
-
-<span class="s2">Basic configuration of a confined aquifer:</span>
-<span class="s2">&lt;br&gt;&lt;br&gt;</span>
-<span class="s2">&quot;&quot;&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;font-size&#39;</span><span class="p">:</span> <span class="s1">&#39;14pt&#39;</span><span class="p">})</span>
-
-<span class="c1">#r3_3 = pn.pane.PNG(&quot;images/T01_TP3.png&quot;, width=600)</span>
-
-<span class="n">r3_4</span><span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">pane</span><span class="o">.</span><span class="n">LaTeX</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">specific storage: &lt;br&gt; $S_s = \frac{\Delta V_w}{V_T \cdot \Delta \psi } $ &lt;br&gt;</span>
-<span class="s2">with &lt;br&gt;</span>
-<span class="s2">$\Delta V_w$ = change in water volume [L$^3$] &lt;br&gt;</span>
-<span class="s2">$V_T$ = total volume [L$^3$]&lt;br&gt;</span>
-<span class="s2">$\Delta \psi$ = change in pressure head [L]</span>
-<span class="s2">&quot;&quot;&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;font-size&#39;</span><span class="p">:</span> <span class="s1">&#39;14pt&#39;</span><span class="p">})</span> 
-
-<span class="c1">#r3_5 = pn.Row(r3_3, r3_4)</span>
-<span class="n">r3_5</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">Row</span><span class="p">(</span><span class="n">r3_4</span><span class="p">)</span>
-<span class="n">pn</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">r3_1</span><span class="p">,</span> <span class="n">r3_2</span><span class="p">,</span> <span class="n">r3_5</span><span class="p">)</span>   
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div id='1014'>
-
-
-
-
-
-  <div class="bk-root" id="f66c4232-2804-4a8c-9595-eff8c48d3044" data-root-id="1014"></div>
-</div>
-<script type="application/javascript">(function(root) {
-  function embed_document(root) {
-  var docs_json = {"42a69f70-e289-4ba0-b50b-7fe431354af7":{"roots":{"references":[{"attributes":{"children":[{"id":"1018"}],"margin":[0,0,0,0],"name":"Row00032"},"id":"1017","type":"Row"},{"attributes":{"css_classes":["markdown"],"margin":[5,5,5,5],"name":"Markdown00028","style":{"font-size":"14pt"},"text":"&lt;h3&gt;Tutorial Problem 3 \u2013 Solution&lt;/h3&gt;\n&lt;p&gt;&lt;strong&gt;For details check lecture slide: L03-28&lt;/strong&gt; &lt;br&gt;&lt;br&gt;&lt;/p&gt;\n&lt;p&gt;Basic configuration of a confined aquifer:\n&lt;br&gt;&lt;br&gt;&lt;/p&gt;"},"id":"1016","type":"panel.models.markup.HTML"},{"attributes":{"children":[{"id":"1015"},{"id":"1016"},{"id":"1017"}],"margin":[0,0,0,0],"name":"Column00033"},"id":"1014","type":"Column"},{"attributes":{"client_comm_id":"590d758d74b54d33b76c21d3647eb1e8","comm_id":"d54f88d8bc574925b63577894c101a25","plot_id":"1014"},"id":"1019","type":"panel.models.comm_manager.CommManager"},{"attributes":{"margin":[5,5,5,5],"name":"LaTeX00030","style":{"font-size":"14pt"},"text":"\nspecific storage: <br> $S_s = \\frac{\\Delta V_w}{V_T \\cdot \\Delta \\psi } $ <br>\nwith <br>\n$\\Delta V_w$ = change in water volume [L$^3$] <br>\n$V_T$ = total volume [L$^3$]<br>\n$\\Delta \\psi$ = change in pressure head [L]\n"},"id":"1018","type":"panel.models.katex.KaTeX"},{"attributes":{"css_classes":["markdown"],"margin":[5,5,5,5],"name":"Markdown00026","style":{"font-size":"14pt"},"text":"&lt;h2&gt;Tutorial Problem 3:&lt;/h2&gt;\n&lt;p&gt;This problem addresses a confined aquifer with a thickness of 61 m and a specific storage of \n1.2 X 10&lt;sup&gt;-5&lt;/sup&gt; 1/m. Due to water injection the pressure head rises by 0.75 m on average over an area 230 m in diameter.\nHow much water is injected?&lt;/p&gt;","width":900},"id":"1015","type":"panel.models.markup.HTML"}],"root_ids":["1014","1019"]},"title":"Bokeh Application","version":"2.1.0"}};
-  var render_items = [{"docid":"42a69f70-e289-4ba0-b50b-7fe431354af7","root_ids":["1014"],"roots":{"1014":"f66c4232-2804-4a8c-9595-eff8c48d3044"}}];
-  root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
-  }
-if (root.Bokeh !== undefined) {
-    embed_document(root);
-  } else {
-    var attempts = 0;
-    var timer = setInterval(function(root) {
-      if (root.Bokeh !== undefined) {
-        clearInterval(timer);
-        embed_document(root);
-      } else if (document.readyState == "complete") {
-        attempts++;
-        if (attempts > 100) {
-          clearInterval(timer);
-          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
-        }
-      }
-    }, 10, root)
-  }
-})(window);</script></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Given data</span>
-<span class="n">d</span> <span class="o">=</span> <span class="mi">230</span> <span class="c1"># m,  diameter of the aquifer</span>
-<span class="n">m</span> <span class="o">=</span> <span class="mi">61</span> <span class="c1"># m, thickness of the aquifer</span>
-<span class="n">Ss</span> <span class="o">=</span> <span class="mf">1.2</span> <span class="o">*</span> <span class="mf">10e-5</span> <span class="c1"># 1/m, specific storage</span>
-<span class="n">DP_h</span> <span class="o">=</span> <span class="mf">0.75</span> <span class="c1"># m, pressure head difference</span>
-
-<span class="c1"># Calculations</span>
-
-<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span><span class="p">(</span><span class="n">d</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="c1"># m^2, area of the aquifer</span>
-<span class="n">Vt</span> <span class="o">=</span> <span class="n">A</span><span class="o">*</span><span class="n">m</span> <span class="c1"># m^3 Total volume of the aquifer</span>
-<span class="n">DV_w</span> <span class="o">=</span> <span class="n">Ss</span><span class="o">*</span><span class="n">Vt</span><span class="o">*</span><span class="n">DP_h</span> <span class="c1"># m^3, additional water volume</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The Aquifer Area is </span><span class="si">{0:1.2E}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">A</span><span class="p">),</span><span class="s2">&quot;m</span><span class="se">\u00b2</span><span class="s2">&quot;</span><span class="p">)</span> 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The Total Volume is </span><span class="si">{0:1.2E}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Vt</span><span class="p">),</span><span class="s2">&quot;m</span><span class="se">\u00b3</span><span class="s2">&quot;</span><span class="p">)</span> 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The Additional Water is </span><span class="si">{0:1.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">DV_w</span><span class="p">),</span><span class="s2">&quot;m</span><span class="se">\u00b3</span><span class="s2">&quot;</span><span class="p">)</span>   
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>The Aquifer Area is 4.15E+04 m²
-The Total Volume is 2.53E+06 m³
-The Additional Water is 228.10 m³
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tut Problem 4</span>
-<span class="n">rx_1</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">pane</span><span class="o">.</span><span class="n">Markdown</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">## Tutorial Problem 4:  ##</span>
-<span class="s2">We consider an unconfined aquifer with a storage coefficient of 0.19. Water will be the change</span>
-<span class="s2">in water volume if the following drawdowns are observed in four sub-areas in a dry period:</span>
-<span class="s2">&quot;&quot;&quot;</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">700</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;font-size&#39;</span><span class="p">:</span> <span class="s1">&#39;13pt&#39;</span><span class="p">})</span>
-<span class="n">rx_1</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div id='1020'>
-
-
-
-
-
-  <div class="bk-root" id="01e05039-83ce-4c9b-8f77-52319294540b" data-root-id="1020"></div>
-</div>
-<script type="application/javascript">(function(root) {
-  function embed_document(root) {
-  var docs_json = {"2306e957-501e-4c45-950a-b6820e556ecb":{"roots":{"references":[{"attributes":{"client_comm_id":"c37dce520a3c4c7a87372de329258ebe","comm_id":"c3f9a4879136484da66ce0979469b333","plot_id":"1020"},"id":"1021","type":"panel.models.comm_manager.CommManager"},{"attributes":{"css_classes":["markdown"],"margin":[5,5,5,5],"name":"Markdown00036","style":{"font-size":"13pt"},"text":"&lt;h2&gt;Tutorial Problem 4:&lt;/h2&gt;\n&lt;p&gt;We consider an unconfined aquifer with a storage coefficient of 0.19. Water will be the change\nin water volume if the following drawdowns are observed in four sub-areas in a dry period:&lt;/p&gt;","width":700},"id":"1020","type":"panel.models.markup.HTML"}],"root_ids":["1020","1021"]},"title":"Bokeh Application","version":"2.1.0"}};
-  var render_items = [{"docid":"2306e957-501e-4c45-950a-b6820e556ecb","root_ids":["1020"],"roots":{"1020":"01e05039-83ce-4c9b-8f77-52319294540b"}}];
-  root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
-  }
-if (root.Bokeh !== undefined) {
-    embed_document(root);
-  } else {
-    var attempts = 0;
-    var timer = setInterval(function(root) {
-      if (root.Bokeh !== undefined) {
-        clearInterval(timer);
-        embed_document(root);
-      } else if (document.readyState == "complete") {
-        attempts++;
-        if (attempts > 100) {
-          clearInterval(timer);
-          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
-        }
-      }
-    }, 10, root)
-  }
-})(window);</script></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
-<span class="n">Head</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Sub-Area&quot;</span><span class="p">,</span> <span class="s2">&quot;Size, (Km2)&quot;</span><span class="p">,</span> <span class="s2">&quot;drawdown (m)&quot;</span><span class="p">,</span> <span class="s2">&quot;Change in water volume (m3)&quot;</span><span class="p">]</span>
-<span class="n">Sub_Area</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">]</span> <span class="c1">#name </span>
-<span class="n">Size</span> <span class="o">=</span> <span class="p">[</span><span class="mi">36</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">85</span><span class="p">]</span> <span class="c1"># km^2, area</span>
-<span class="n">Drawdown</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.85</span><span class="p">,</span> <span class="mf">1.09</span><span class="p">,</span> <span class="mf">1.65</span><span class="p">,</span> <span class="mf">2.37</span><span class="p">]</span> <span class="c1"># m, equivalent to change in pressure head</span>
-<span class="n">Q4t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">([</span><span class="n">Sub_Area</span><span class="p">,</span> <span class="n">Size</span><span class="p">,</span> <span class="n">Drawdown</span><span class="p">])</span>
-<span class="n">Q4</span> <span class="o">=</span> <span class="n">ips</span><span class="o">.</span><span class="n">sheet</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">rows</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">column_headers</span><span class="o">=</span><span class="n">Head</span><span class="p">)</span>
-<span class="n">ips</span><span class="o">.</span><span class="n">cell_range</span><span class="p">(</span><span class="n">Q4t</span><span class="p">);</span><span class="n">Q4</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "61288f680a034c059c16ed11b3233f5a"}
-</script></div>
-</div>
-<div class="section" id="tutorial-problem-4-solution">
-<h2>Tutorial Problem 4 – Solution<a class="headerlink" href="#tutorial-problem-4-solution" title="Permalink to this headline">¶</a></h2>
-<p><strong>For details check lecture slides L03 - 28, 29 and 31</strong></p>
-<p>In unconfined aquifer Stortavity (<span class="math notranslate nohighlight">\(S\)</span>) is used instead of storage coefficient <span class="math notranslate nohighlight">\(S_s\)</span>. They both are related with thickness (<span class="math notranslate nohighlight">\(m\)</span>) as:</p>
-<div class="math notranslate nohighlight">
-\[
-S = S_s \times m
-\]</div>
-<p>and so in unconfined aquifer, we get:</p>
-<div class="math notranslate nohighlight">
-\[S = \frac{\Delta V_w}{A \cdot \Delta \psi } \]</div>
-<p>with <br>
-<span class="math notranslate nohighlight">\(\Delta V_w\)</span> = change in water volume [L<span class="math notranslate nohighlight">\(^3\)</span>³] <br>
-<span class="math notranslate nohighlight">\(A\)</span> = Domain area [L<span class="math notranslate nohighlight">\(^2\)</span>]<br>
-<span class="math notranslate nohighlight">\(\Delta \psi\)</span> = change in pressure head [L]</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Given information</span>
-<span class="n">s</span> <span class="o">=</span> <span class="mf">0.19</span> 
-<span class="n">Size</span> <span class="o">=</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">85</span><span class="p">]</span> <span class="c1"># km^2, area</span>
-<span class="n">Drawdown</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.85</span><span class="p">,</span> <span class="mf">1.09</span><span class="p">,</span> <span class="mf">1.65</span><span class="p">,</span> <span class="mf">2.37</span><span class="p">]</span> <span class="c1"># m, equivalent to change in pressure head</span>
-
-<span class="c1"># Solution part</span>
-<span class="n">Vol_cha</span> <span class="o">=</span> <span class="n">s</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">Size</span><span class="p">,</span> <span class="n">Drawdown</span><span class="p">)</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span> <span class="c1"># m^3, vol change = s*area size * drawdawn</span>
-
-<span class="c1"># output printing</span>
-<span class="n">y</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">Vol_cha</span><span class="p">)</span>
-<span class="n">y1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">([</span><span class="n">Sub_Area</span><span class="p">,</span> <span class="n">Size</span><span class="p">,</span> <span class="n">Drawdown</span><span class="p">,</span> <span class="n">y</span><span class="p">])</span> 
-<span class="n">s1</span> <span class="o">=</span> <span class="n">ips</span><span class="o">.</span><span class="n">sheet</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">rows</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">column_headers</span><span class="o">=</span> <span class="n">Head</span><span class="p">,</span> <span class="n">row_headers</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s1">&#39;650px&#39;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s1">&#39;250px&#39;</span><span class="p">))</span>
-<span class="n">y1</span> <span class="o">=</span> <span class="n">ips</span><span class="o">.</span><span class="n">cell_range</span><span class="p">(</span><span class="n">y1</span><span class="p">)</span> 
-<span class="n">ips</span><span class="o">.</span><span class="n">cell</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;lightgray&quot;</span><span class="p">);</span><span class="n">s1</span> 
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "9a36f51cdeed4198ac99080b2ef27b43"}
-</script></div>
-</div>
-</div>
-<div class="section" id="tutorial-problem-5">
-<h2>Tutorial Problem 5:<a class="headerlink" href="#tutorial-problem-5" title="Permalink to this headline">¶</a></h2>
-<p>A confined aquifer is considered in this problem. Specific storage and total porosity equal <span class="math notranslate nohighlight">\(7.5\times 10^{-6}\)</span> 1/m and 30%, respectively.
-What is the compressibility of the porous medium? (compressibility of water: <span class="math notranslate nohighlight">\(4.6\times 10^{-10}\)</span> m<span class="math notranslate nohighlight">\(^2\)</span>/N, density of water: 998 kg/m<span class="math notranslate nohighlight">\(^3\)</span>)</p>
-<div class="section" id="tutorial-problem-5-solution">
-<h3>Tutorial Problem 5 – Solution<a class="headerlink" href="#tutorial-problem-5-solution" title="Permalink to this headline">¶</a></h3>
-<p><strong>For details check slide nr. L03-28</strong></p>
-<p>Specific Storage,</p>
-<div class="math notranslate nohighlight">
-\[S_s = (n\alpha_w + \alpha_{pm})\rho_w g\]</div>
-<p>with: <span class="math notranslate nohighlight">\(n\)</span> = Total porosity [-]<br>
-<span class="math notranslate nohighlight">\(g\)</span> = acceleration due to gravity [L/T<span class="math notranslate nohighlight">\(^2\)</span>] <br>
-<span class="math notranslate nohighlight">\(\alpha_w\)</span> = compressibility of water [LT<span class="math notranslate nohighlight">\(^2\)</span>/M]   <br>
-<span class="math notranslate nohighlight">\(\alpha_{pm}\)</span> =	compressibility of porous 	medium [LT<span class="math notranslate nohighlight">\(^2\)</span>/M]<br>
-<span class="math notranslate nohighlight">\(\rho_w\)</span> = density of water [M/L<span class="math notranslate nohighlight">\(^3\)</span>]</p>
-<p>Solve for <span class="math notranslate nohighlight">\(\alpha_{pm}\)</span>: <span class="math notranslate nohighlight">\(\frac{S_s}{\rho_w g} -n\alpha_w = \alpha_{pm}\)</span></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Given data</span>
- 
-<span class="n">n</span> <span class="o">=</span> <span class="mf">0.3</span> <span class="c1"># unitless, total porosity</span>
-<span class="n">rho_w</span> <span class="o">=</span> <span class="mi">998</span> <span class="c1"># kg/m3, density of water</span>
-<span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span> <span class="c1"># m/s2, accl. due to gravity</span>
-<span class="n">alpha_w</span> <span class="o">=</span> <span class="mf">4.6</span><span class="o">*</span><span class="mf">1e-10</span> <span class="c1"># m2/N, compressibility of water</span>
-<span class="n">S_s</span> <span class="o">=</span> <span class="mf">7.5</span><span class="o">*</span><span class="mf">1e-6</span> <span class="c1"># 1/m, specific storage </span>
-
-<span class="c1"># calculated land subsidence (LS)</span>
-<span class="n">alpha_pm5</span> <span class="o">=</span> <span class="n">S_s</span><span class="o">/</span><span class="p">(</span><span class="n">rho_w</span><span class="o">*</span><span class="n">g</span><span class="p">)</span> <span class="o">-</span> <span class="n">n</span><span class="o">*</span><span class="n">alpha_w</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The Compressibility of Porous mdeid is </span><span class="si">{0:0.2E}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">alpha_pm5</span><span class="p">),</span> <span class="s2">&quot;m</span><span class="se">\u00b2</span><span class="s2">/N&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>The Compressibility of Porous mdeid is 6.28E-10 m²/N
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="tutorial-problem-6">
-<h2>Tutorial Problem 6:<a class="headerlink" href="#tutorial-problem-6" title="Permalink to this headline">¶</a></h2>
-<p>Due to water extraction from a confined aquifer the pressure head is
-lowered by 183 m. The following aquifer parameters are available: storage
-coefficient = 5·10-4, total porosity = 0.33, thickness (before water
-extraction) = 80 m, compressibility of the porous medium = 6.9·10-8 m²/N and the density of water is 998 kg/m<span class="math notranslate nohighlight">\(^3\)</span></p>
-<p>What is the amount of land subsidence resulting from the water extraction?</p>
-<div class="section" id="tutorial-problem-6-solution">
-<h3>Tutorial Problem 6 – Solution<a class="headerlink" href="#tutorial-problem-6-solution" title="Permalink to this headline">¶</a></h3>
-<p><strong>For details see slide nr. L03-25 and 26</strong><br></p>
-<p>Change in total volume due to <span class="math notranslate nohighlight">\(\Delta p_{pm}\)</span>:
-<span class="math notranslate nohighlight">\($\Delta V_T = \alpha_{pm} V_T\rho_w g \Delta \psi\)</span>$<br>
-with:
-<span class="math notranslate nohighlight">\(\alpha_{pm}\)</span> =	compressibility of porous medium [LT<span class="math notranslate nohighlight">\(^2\)</span>/M] <br>                   <span class="math notranslate nohighlight">\(V_T\)</span> = total volume [L<span class="math notranslate nohighlight">\(^3\)</span>] <br>                                          <span class="math notranslate nohighlight">\(\rho_w\)</span> = density of water [M/L<span class="math notranslate nohighlight">\(^3\)</span>]      <br>                               <span class="math notranslate nohighlight">\(g\)</span> = acceleration of gravity [L/T<span class="math notranslate nohighlight">\(^2\)</span>]   <br>                        <span class="math notranslate nohighlight">\(\Delta \psi\)</span> = change in pressure head [L]</p>
-<p><span class="math notranslate nohighlight">\(\Delta V_T = A\times\Delta m\)</span> and <br>
-<span class="math notranslate nohighlight">\(V_T = A\times m\)</span> and <br>
-with <span class="math notranslate nohighlight">\(A\)</span> = area of the aquifer [L/T<span class="math notranslate nohighlight">\(^2\)</span>] and <span class="math notranslate nohighlight">\(m\)</span> = Thickness of the aquifer [L].
-Substituting these relation in the above equation we get:</p>
-<p><span class="math notranslate nohighlight">\(\Delta m = \alpha_{pm} m\rho_w g \Delta \psi\)</span><br></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Given data</span>
-<span class="n">alpha_pm</span> <span class="o">=</span> <span class="mf">6.9</span> <span class="o">*</span> <span class="mf">1e-8</span> <span class="c1"># m2/N, compressibility of porous medium </span>
-<span class="n">m</span> <span class="o">=</span> <span class="mi">80</span> <span class="c1"># m, thickness</span>
-<span class="n">rho_w</span> <span class="o">=</span> <span class="mi">998</span> <span class="c1"># kg/m3, density of water</span>
-<span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span> <span class="c1"># m/s2, accl. due to gravity</span>
-<span class="n">DP_h</span> <span class="o">=</span> <span class="mi">183</span> <span class="c1"># m, change in pressure head</span>
-
-<span class="c1"># calculated land subsidence (LS)</span>
-<span class="n">LS</span> <span class="o">=</span> <span class="n">alpha_pm</span><span class="o">*</span><span class="n">m</span><span class="o">*</span><span class="n">rho_w</span><span class="o">*</span><span class="n">g</span><span class="o">*</span><span class="n">DP_h</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The land subsidence is </span><span class="si">{0:0.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">LS</span><span class="p">),</span> <span class="s2">&quot;m&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>The land subsidence is 9.89 m
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="home-work-problems">
-<h1>HOME WORK PROBLEMS<a class="headerlink" href="#home-work-problems" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="homework-problem-1">
-<h2>Homework Problem 1<a class="headerlink" href="#homework-problem-1" title="Permalink to this headline">¶</a></h2>
-<p>The pressure head in an aquifer extending over 200 km<span class="math notranslate nohighlight">\(^2\)</span> is decreased by 1.60 m.
-Determine the loss of groundwater in the aquifer for two scenarios:
-The aquifer is unconfined (storage coefficient 0.13).
-The aquifer is confined (storage coefficient 0.0005).</p>
-</div>
-<div class="section" id="homework-problem-2">
-<h2>Homework Problem 2<a class="headerlink" href="#homework-problem-2" title="Permalink to this headline">¶</a></h2>
-<p>Conduct a sieve analysis for a dried soil sample (see data in the table below)</p>
-<ol class="simple">
-<li><p>Draw the granulometric curve (cumulative mass distribution) and briefly characterise the sediment with regard to its major constituent(s).</p></li>
-<li><p>What is the coefficient of uniformity?</p></li>
-</ol>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
-<span class="n">Head</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;mesh   size  [mm] &quot;</span><span class="p">,</span> <span class="s2">&quot;residue in the sieve [g] &quot;</span><span class="p">,</span> <span class="s2">&quot;∑ total&quot;</span><span class="p">,</span> <span class="s2">&quot;∑ / ∑total&quot;</span><span class="p">]</span>
-<span class="n">Size</span> <span class="o">=</span> <span class="p">[</span><span class="mf">6.3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.63</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.063</span><span class="p">,</span> <span class="s2">&quot;&lt; 0.063 /cup&quot;</span><span class="p">]</span>
-<span class="n">Drawdown</span> <span class="o">=</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">288</span><span class="p">,</span> <span class="mi">189</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
-<span class="n">s2</span> <span class="o">=</span> <span class="n">ips</span><span class="o">.</span><span class="n">sheet</span><span class="p">(</span><span class="n">rows</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">row_headers</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">column_headers</span><span class="o">=</span><span class="n">Head</span><span class="p">)</span>
-<span class="n">ips</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Size</span><span class="p">,</span> <span class="n">row_start</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> 
-<span class="n">ips</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">Drawdown</span><span class="p">,</span> <span class="n">row_start</span><span class="o">=</span><span class="mi">0</span><span class="p">);</span> <span class="n">s2</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "d13dc288c19a4df4ab5e932ed13e4106"}
-</script></div>
-</div>
-</div>
-</div>
-
-
-<script type="application/vnd.jupyter.widget-state+json">
-{"state": {"18e3a09c9da64195bbfd4fa26d3d6147": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": "auto", "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": "auto"}}, "61288f680a034c059c16ed11b3233f5a": {"model_name": "SheetModel", "model_module": "ipysheet", "model_module_version": "~0.4.3", "state": {"_dom_classes": [], "_model_module": "ipysheet", "_model_module_version": "~0.4.3", "_model_name": "SheetModel", "_view_count": null, "_view_module": "ipysheet", "_view_module_version": "~0.4.3", "_view_name": "SheetView", "cells": ["IPY_MODEL_e4c89c775ae64294999b144a6d8ca2ea"], "column_headers": ["Sub-Area", "Size, (Km2)", "drawdown (m)", "Change in water volume (m3)"], "column_resizing": true, "column_width": null, "columns": 4, "layout": "IPY_MODEL_18e3a09c9da64195bbfd4fa26d3d6147", "named_cells": {}, "row_headers": true, "row_resizing": true, "rows": 4, "search_token": "", "stretch_headers": "all"}}, "e4c89c775ae64294999b144a6d8ca2ea": {"model_name": "CellRangeModel", "model_module": "ipysheet", "model_module_version": "~0.4.3", "state": {"_model_module": "ipysheet", "_model_module_version": "~0.4.3", "_model_name": "CellRangeModel", "_view_count": null, "_view_module": null, "_view_module_version": "", "_view_name": null, "choice": null, "column_end": 2, "column_start": 0, "date_format": "YYYY/MM/DD", "name": null, "numeric_format": "0.000", "read_only": false, "renderer": null, "row_end": 3, "row_start": 0, "squeeze_column": false, "squeeze_row": false, "style": {}, "time_format": "h:mm:ss a", "transpose": false, "type": "text", "value": [["A", "36", "0.85"], ["B", "18", "1.09"], ["C", "72", "1.65"], ["D", "85", "2.37"]]}}, "d4b7a48386d64763a8b6bfded436b39a": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": "250px", "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": "650px"}}, "9a36f51cdeed4198ac99080b2ef27b43": {"model_name": "SheetModel", "model_module": "ipysheet", "model_module_version": "~0.4.3", "state": {"_dom_classes": [], "_model_module": "ipysheet", "_model_module_version": "~0.4.3", "_model_name": "SheetModel", "_view_count": null, "_view_module": "ipysheet", "_view_module_version": "~0.4.3", "_view_name": "SheetView", "cells": ["IPY_MODEL_9e1a5e29a0ae480587156dc8825e0db3", "IPY_MODEL_24be2d50d7074a7ead15e062145aacb6"], "column_headers": ["Sub-Area", "Size, (Km2)", "drawdown (m)", "Change in water volume (m3)"], "column_resizing": true, "column_width": null, "columns": 4, "layout": "IPY_MODEL_d4b7a48386d64763a8b6bfded436b39a", "named_cells": {}, "row_headers": false, "row_resizing": true, "rows": 5, "search_token": "", "stretch_headers": "all"}}, "9e1a5e29a0ae480587156dc8825e0db3": {"model_name": "CellRangeModel", "model_module": "ipysheet", "model_module_version": "~0.4.3", "state": {"_model_module": "ipysheet", "_model_module_version": "~0.4.3", "_model_name": "CellRangeModel", "_view_count": null, "_view_module": null, "_view_module_version": "", "_view_name": null, "choice": null, "column_end": 3, "column_start": 0, "date_format": "YYYY/MM/DD", "name": null, "numeric_format": "0.000", "read_only": false, "renderer": null, "row_end": 3, "row_start": 0, "squeeze_column": false, "squeeze_row": false, "style": {}, "time_format": "h:mm:ss a", "transpose": false, "type": "text", "value": [["A", "50", "0.85", "8074999.999999999"], ["B", "18", "1.09", "3727800.0"], ["C", "72", "1.65", "22572000.0"], ["D", "85", "2.37", "38275500.0"]]}}, "24be2d50d7074a7ead15e062145aacb6": {"model_name": "CellRangeModel", "model_module": "ipysheet", "model_module_version": "~0.4.3", "state": {"_model_module": "ipysheet", "_model_module_version": "~0.4.3", "_model_name": "CellRangeModel", "_view_count": null, "_view_module": null, "_view_module_version": "", "_view_name": null, "choice": null, "column_end": 3, "column_start": 3, "date_format": "YYYY/MM/DD", "name": null, "numeric_format": "0.000", "read_only": false, "renderer": null, "row_end": 4, "row_start": 4, "squeeze_column": true, "squeeze_row": true, "style": {"backgroundColor": "lightgray"}, "time_format": "h:mm:ss a", "transpose": false, "type": "numeric", "value": 72650300.0}}, "b047c42d583b480590f0c0174fd9c03c": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": "auto", "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": "auto"}}, "d13dc288c19a4df4ab5e932ed13e4106": {"model_name": "SheetModel", "model_module": "ipysheet", "model_module_version": "~0.4.3", "state": {"_dom_classes": [], "_model_module": "ipysheet", "_model_module_version": "~0.4.3", "_model_name": "SheetModel", "_view_count": null, "_view_module": "ipysheet", "_view_module_version": "~0.4.3", "_view_name": "SheetView", "cells": ["IPY_MODEL_2e088a416f1d42bdb8feaa38fc025e5e", "IPY_MODEL_4078f4059e2a4567ad99c9be14066089"], "column_headers": ["mesh   size  [mm] ", "residue in the sieve [g] ", "\u2211 total", "\u2211 / \u2211total"], "column_resizing": true, "column_width": null, "columns": 4, "layout": "IPY_MODEL_b047c42d583b480590f0c0174fd9c03c", "named_cells": {}, "row_headers": false, "row_resizing": true, "rows": 6, "search_token": "", "stretch_headers": "all"}}, "2e088a416f1d42bdb8feaa38fc025e5e": {"model_name": "CellRangeModel", "model_module": "ipysheet", "model_module_version": "~0.4.3", "state": {"_model_module": "ipysheet", "_model_module_version": "~0.4.3", "_model_name": "CellRangeModel", "_view_count": null, "_view_module": null, "_view_module_version": "", "_view_name": null, "choice": null, "column_end": 0, "column_start": 0, "date_format": "YYYY/MM/DD", "name": null, "numeric_format": "0.000", "read_only": false, "renderer": null, "row_end": 5, "row_start": 0, "squeeze_column": true, "squeeze_row": false, "style": {}, "time_format": "h:mm:ss a", "transpose": false, "type": null, "value": [6.3, 2, 0.63, 0.2, 0.063, "< 0.063 /cup"]}}, "4078f4059e2a4567ad99c9be14066089": {"model_name": "CellRangeModel", "model_module": "ipysheet", "model_module_version": "~0.4.3", "state": {"_model_module": "ipysheet", "_model_module_version": "~0.4.3", "_model_name": "CellRangeModel", "_view_count": null, "_view_module": null, "_view_module_version": "", "_view_name": null, "choice": null, "column_end": 1, "column_start": 1, "date_format": "YYYY/MM/DD", "name": null, "numeric_format": "0.000", "read_only": false, "renderer": null, "row_end": 5, "row_start": 0, "squeeze_column": true, "squeeze_row": false, "style": {}, "time_format": "h:mm:ss a", "transpose": false, "type": "numeric", "value": [11, 62, 288, 189, 42, 8]}}}, "version_major": 2, "version_minor": 0}
-</script>
-
 
     <script type="text/x-thebe-config">
     {
@@ -2245,7 +1681,7 @@ The aquifer is confined (storage coefficient 0.0005).</p>
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="34_modeling_approaches.html" title="previous page">Groundwater Flow</a>
+    <a class='left-prev' id="prev-link" href="34_modeling_approaches.html" title="previous page">Lecture 14 - Modeling approaches</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
