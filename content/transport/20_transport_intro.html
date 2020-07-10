@@ -46,7 +46,7 @@
 <meta property="og:url"         content="https://tu-dresden.de/bu/umwelt/hydro/igw/content/transport/20_transport_intro.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Transport in groundwater" />
-<meta property="og:description" content="Transport in groundwater  (based on lecture 9 of HSE GW course)  The transport is the second among the three components of our course.  The Transport in groundw" />
+<meta property="og:description" content="Transport in groundwater  (based on lecture 9 of HSE GW course)  Note  The transport is the second among the three components of our course.  The components can" />
 <meta property="og:image"       content="https://tu-dresden.de/bu/umwelt/hydro/igw/_static/logo3.png" />
 
 <meta name="twitter:card" content="summary">
@@ -161,7 +161,7 @@
                 <!-- ipynb file if we had a myst markdown file -->
                 
                 <!-- Download raw file -->
-                <a class="dropdown-buttons" href="../../_sources/content/transport/20_transport_intro.md"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.md</button></a>
+                <a class="dropdown-buttons" href="../../_sources/content/transport/20_transport_intro.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
                 <!-- Download PDF via print -->
                 <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
             </div>
@@ -175,6 +175,18 @@
         <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+            <div class="dropdown-buttons">
+                
+                <a class="binder-button" href="https://mybinder.org/v2/gh/prabhasyadav/Groundwater-I/gh-pages?urlpath=tree/content/transport/20_transport_intro.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                
+                
+                <button type="button" class="btn btn-secondary topbarbtn thebelab-launch-button" onclick="initThebelab()" title="Launch Thebelab" data-toggle="tooltip" data-placement="left"><i class="fas fa-rocket"></i><span style="margin-left: .4em;">ThebeLab</span></button>
+                
+            </div>
+        </div>
         
     </div>
     <div class="d-none d-md-block col-md-2 bd-toc show">
@@ -203,9 +215,16 @@
   <div class="section" id="transport-in-groundwater">
 <h1>Transport in groundwater<a class="headerlink" href="#transport-in-groundwater" title="Permalink to this headline">¶</a></h1>
 <p><em>(based on lecture 9 of HSE GW course</em>)</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>The <strong>transport</strong> is the second among the three components of our course.</p>
-<p>The <strong>Transport</strong> in groundwater deals with quantification of any component that flows along with the groundwater. The compoents can be living organisms, e.g., bacteria, virus; chemicals, e.g., oil, CO<span class="math notranslate nohighlight">\(_2\)</span> or porous media, e.g., sand, soil</p>
-<p>Thus, one differentiates between groundwater <strong>flow</strong> - as studies related with only water as against <strong>transport</strong> - related to components flowing along with groundwater.  In terms of unit of measurements, the flow studies deals with volumetric unit [L<span class="math notranslate nohighlight">\(^3\)</span>], whereas transport study deals with qunatification of mass [M] often as per unit volume of groundwater or concentration [ML<span class="math notranslate nohighlight">\(^{-3}\)</span>]. <strong>Space</strong> and <strong>time</strong> are fundamental variables in both flow and transport studies.</p>
+</div>
+<div class="sidebar">
+<p class="sidebar-title">The components can be living organisms</p>
+<p>e.g., bacteria, virus; chemicals, e.g., oil, CO<span class="math notranslate nohighlight">\(_2\)</span> or porous media, e.g., sand, soil</p>
+</div>
+<p>The <strong>Transport</strong> in groundwater deals with quantification of any <strong>component</strong> that flows along with the groundwater.</p>
+<br><p>Thus, one differentiates between groundwater <strong>flow</strong> - as studies related with only water as against <strong>transport</strong> - related to components flowing along with groundwater.  In terms of unit of measurements, the flow studies deals with volumetric unit  [<span class="math notranslate nohighlight">\(L^{3}\)</span>], whereas transport study deals with qunatification of mass [M] often as per unit volume of groundwater or concentration [ML<span class="math notranslate nohighlight">\(^{-3}\)</span>]. <strong>Space</strong> and <strong>time</strong> are fundamental variables in both flow and transport studies.</p>
 <p>The <em>transport</em> in groundwater can be categorized into the two following group.</p>
 <ol class="simple">
 <li><p>Conservative transport</p></li>
@@ -220,8 +239,14 @@
 <li><p>no interaction with other chemicals,</p></li>
 <li><p>no interaction with living organisms (e.g., bacteria)</p></li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>When either of the above interaction is part of the process, then the system is <strong>reactive</strong>.</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Tip</p>
 <p>In the course, the conservative transport will introduce fundamental transport processes such as <strong>advection</strong>, <strong>mechanical dispersion</strong> and <strong>diffusion</strong>. Then in the reactive transport, these processes will be combined with reaction processes such as <strong>sorption</strong>, <strong>degradation</strong>. Eventually, fundamental equation for modeling transport (conservative and reactive) will be developed.</p>
+</div>
 <div class="toctree-wrapper compound">
 </div>
 </div>

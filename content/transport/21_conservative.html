@@ -46,7 +46,7 @@
 <meta property="og:url"         content="https://tu-dresden.de/bu/umwelt/hydro/igw/content/transport/21_conservative.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Lecture 9-  Conservative Transport" />
-<meta property="og:description" content="Lecture 9-  Conservative TransportPrabhas will edit the contents  Let us start witht a groundwater contamination scenario.  <a href="fig1"></a><img src="images/" />
+<meta property="og:description" content="Lecture 9-  Conservative Transport  Let us start witht a groundwater contamination scenario.  <a href="fig1"></a><img src="images/T_f1.png" alt="Contamination s" />
 <meta property="og:image"       content="https://tu-dresden.de/bu/umwelt/hydro/igw/_static/logo3.png" />
 
 <meta name="twitter:card" content="summary">
@@ -161,7 +161,7 @@
                 <!-- ipynb file if we had a myst markdown file -->
                 
                 <!-- Download raw file -->
-                <a class="dropdown-buttons" href="../../_sources/content/transport/21_conservative.md"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.md</button></a>
+                <a class="dropdown-buttons" href="../../_sources/content/transport/21_conservative.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
                 <!-- Download PDF via print -->
                 <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
             </div>
@@ -175,6 +175,18 @@
         <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+            <div class="dropdown-buttons">
+                
+                <a class="binder-button" href="https://mybinder.org/v2/gh/prabhasyadav/Groundwater-I/gh-pages?urlpath=tree/content/transport/21_conservative.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                
+                
+                <button type="button" class="btn btn-secondary topbarbtn thebelab-launch-button" onclick="initThebelab()" title="Launch Thebelab" data-toggle="tooltip" data-placement="left"><i class="fas fa-rocket"></i><span style="margin-left: .4em;">ThebeLab</span></button>
+                
+            </div>
+        </div>
         
     </div>
     <div class="d-none d-md-block col-md-2 bd-toc show">
@@ -195,14 +207,15 @@
                 
   <div class="section" id="lecture-9-conservative-transport">
 <h1>Lecture 9-  Conservative Transport<a class="headerlink" href="#lecture-9-conservative-transport" title="Permalink to this headline">¶</a></h1>
-</div>
-<div class="section" id="prabhas-will-edit-the-contents">
-<h1>Prabhas will edit the contents<a class="headerlink" href="#prabhas-will-edit-the-contents" title="Permalink to this headline">¶</a></h1>
 <p>Let us start witht a groundwater contamination scenario.</p>
-<p><a href="fig1"></a><img src="images/T_f1.png" alt="Contamination scenrio" width="400" height="600"></p>
+<p><a href="fig1"></a><img src="images/T_f1.png" alt="Contamination scenario" width="400" height="600"></p>
 <p>In the figure, the chemicals (contaminants) first enters the <em>vadose zone</em>, an unstatured part of the subsurface from the ground surface. The entry is faciliated with phenomenan such as rainfall. As only limited water are available and there are almost no continuous horizontal flow, the contaminants, mostly as a pure phase,  in this zone often travels vertically until it reaches the groundwater table - a boundary between an unstaturated and saturated subsurface. Beneath the water-table, the contaminants mixes with the flowing groundwater and spreads both vertically and horizontally along the saturated zone resulting to a development of a contaminant plume.</p>
-<p><strong>In this course we learn only of contamination in the saturated zone.</strong></p>
-<p>As was shown in the <a class="reference external" href="#fig1">fig1</a> (<u> will have to check if this linking works &lt;\u&gt;), the main process of conservative transport are:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note
+<strong>In this course we learn only of contamination in the saturated zone.</strong></p>
+</div>
+<p>As was shown in the [fig1], the main process of conservative transport are:</p>
 <ul class="simple">
 <li><p>Advection/convection</p></li>
 <li><p>Dispersion</p></li>
