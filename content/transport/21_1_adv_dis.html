@@ -36,7 +36,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Tutorial 5 - Conservative Transport" href="T5_conservative.html" />
-    <link rel="prev" title="Conservative Transport" href="21_conservative.html" />
+    <link rel="prev" title="Lecture 9- Conservative Transport" href="21_conservative.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -46,7 +46,7 @@
 <meta property="og:url"         content="https://tu-dresden.de/bu/umwelt/hydro/igw/content/transport/21_1_adv_dis.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Conservative transport Processes" />
-<meta property="og:description" content="Conservative transport Processes  Advection  <u>Advection</u>, also called convection, is the transport of components (matter or also energy) due to moving medi" />
+<meta property="og:description" content="Conservative transport Processes  Advection  For example  The moving medium, i.e., a carrier is, usually groundwater.  <u>Advection</u>, also called convection," />
 <meta property="og:image"       content="https://tu-dresden.de/bu/umwelt/hydro/igw/_static/logo3.png" />
 
 <meta name="twitter:card" content="summary">
@@ -102,7 +102,7 @@
     <a href="20_transport_intro.html">Transport in groundwater</a>
   <ul class="nav sidenav_l2">
     <li class="">
-      <a href="21_conservative.html">Conservative Transport</a>
+      <a href="21_conservative.html">Lecture 9-  Conservative Transport</a>
     </li>
     <li class="active">
       <a href="">Conservative transport Processes</a>
@@ -111,7 +111,7 @@
       <a href="T5_conservative.html">Tutorial 5 - Conservative Transport</a>
     </li>
     <li class="">
-      <a href="22_reactive.html">Reactive Transport</a>
+      <a href="22_reactive.html">Lecture 10 - Reactive Transport</a>
     </li>
     <li class="">
       <a href="T6_reactive.html">Tutorial 6 - Reactive Transport</a>
@@ -262,9 +262,16 @@
 <h1>Conservative transport Processes<a class="headerlink" href="#conservative-transport-processes" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="advection">
 <h2>Advection<a class="headerlink" href="#advection" title="Permalink to this headline">¶</a></h2>
-<p><u>Advection</u>, also called <strong>convection</strong>, is the transport of components (matter or also energy) due to moving medium. The moving medium, i.e., <em>a carrier</em> is, usually groundwater. Thus, quantities that characterizes flow also characterizes advective transport.</p>
+<div class="sidebar">
+<p class="sidebar-title">For example</p>
+<p>The moving medium, i.e., a carrier is, usually groundwater.</p>
+</div>
+<p><u>Advection</u>, also called <strong>convection</strong>, is the transport of components (matter or also energy) due to <strong>moving medium</strong>. Thus, quantities that characterizes flow also characterizes advective transport.</p>
 <p>Advective transport is not limited to groundwater system. Heating circuit, sailplaning are examples of convection of heat. Similarly, movement of suspended particles in the surface water or by the wind are few examples of advective transport in non-groundwater systems.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>The term <strong>convection</strong> is more often associated with energy transport, whereas <strong>advection</strong> is frequently used for transport of the matter.</p>
+</div>
 <div class="section" id="d-advection-and-advective-mass-rate">
 <h3>1D Advection and advective mass rate<a class="headerlink" href="#d-advection-and-advective-mass-rate" title="Permalink to this headline">¶</a></h3>
 <p>2D studies are more often the case used in exploring groundwater and its processes. 1D studies can also be sufficient to understand the <strong>flow</strong> dominated processes such as advection. Also, 1D study is more suitable in lab column studies, as often length of pipes are many times larger that its diameter. For advection, considering 1D pipe flow, to be considered are:</p>
@@ -363,16 +370,21 @@ Q_1 &amp;=Q_2 \
 A_1 v_1 &amp;= A_2 v_2
 \end{align*}</p>
 <p>As <span class="math notranslate nohighlight">\(Q_1=Q_2= Q\)</span>, and when <span class="math notranslate nohighlight">\(A\)</span> changes then, <span class="math notranslate nohighlight">\(v\)</span> has to change as well. In this case considering that <span class="math notranslate nohighlight">\(n_e\)</span> is spatially constant, <span class="math notranslate nohighlight">\(v\)</span> will be inversely proportional to the cross-section. i.e., increase in <span class="math notranslate nohighlight">\(A\)</span> will result to decrease in <span class="math notranslate nohighlight">\(v\)</span> and vice-versa.</p>
+<div class="tip admonition">
+<p class="admonition-title">Tip</p>
 <p>Based on this, the mass (patch in the figure), is actually equal in both figure and they are onyl spread out laterally. In other words, as cross-section increased and velocity decreased, the mass extension is reduced along the flow direction. The effect of <em>advection</em> is that the <em>concentration</em>, which is the total mass per litre of groundwater, remains unchanged in the patched mass area.</p>
+</div>
 </div>
 <div class="section" id="is-advection-enough">
 <h3>Is advection enough?<a class="headerlink" href="#is-advection-enough" title="Permalink to this headline">¶</a></h3>
+<div class="toggle docutils container">
 <p>Probably not. Advection may only be possible in uniformly packed porous medium with also perfectly uniform particle size distribution of medium particles. This is rather exception. In normal cases, the the particle transport will spread out leading some matter exiting earlier then remaining others. This is explained by process called <strong>mechanical dispersion</strong>.</p>
+</div>
 <p><a href="fig3"></a><img src="images/T_f3.png" alt ="advection-dispersion" width = "400"></p>
-<blockquote>
-<div><p>Note: 1D only have longitudinal dispersivity. Transverse dispersivity is 2D/3D property
-This is a footnote reference.</p>
-</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note: 1D only have longitudinal dispersivity. Transverse dispersivity is 2D/3D property.</p>
+</div>
 </div>
 </div>
 <div class="section" id="mechanical-dispersion">
@@ -508,7 +520,7 @@ Simulating mechanical dispersion
 You can change input values to see the effect
 </pre></div>
 </div>
-<img alt="../../_images/21_1_adv_dis_11_1.png" src="../../_images/21_1_adv_dis_11_1.png" />
+<img alt="../../_images/21_1_adv_dis_12_1.png" src="../../_images/21_1_adv_dis_12_1.png" />
 </div>
 </div>
 </div>
@@ -527,9 +539,13 @@ J_{diff} &amp;\propto - A\cdot\frac{\Delta C}{L}\
 J_{diff} &amp;= - D \cdot A\cdot\frac{\Delta C}{L}\
 \end{align*}</p>
 <p><span class="math notranslate nohighlight">\(D\)</span> [L<span class="math notranslate nohighlight">\(^2\)</span>T<span class="math notranslate nohighlight">\(^{-1}\)</span>] is the proportional coefficient called diffusion coefficient. And, the negative sign is for indicating that flow is from the regions with higher concentration to regions with lower concentrations. As can be observed from the equation, <span class="math notranslate nohighlight">\(D\)</span> will equal <span class="math notranslate nohighlight">\(J_{diff}\)</span> for unit cross-section for a unit concentration gradient. The value of <span class="math notranslate nohighlight">\(D\)</span> of dissolved chemicals in liquid water (not exactly in groundwater, which is water in porous media) are mostly in the range from <span class="math notranslate nohighlight">\(10^{-10}\)</span> m<span class="math notranslate nohighlight">\(^2\)</span>/s -  <span class="math notranslate nohighlight">\(10^{-9}\)</span> m<span class="math notranslate nohighlight">\(^2\)</span>/s. The value of <span class="math notranslate nohighlight">\(D\)</span> of chemicals in gases are larger by about four orders of magnitude, i.e., the range in this case from from <span class="math notranslate nohighlight">\(10^{-6}\)</span> m<span class="math notranslate nohighlight">\(^2\)</span>/s -  <span class="math notranslate nohighlight">\(10^{-5}\)</span> m<span class="math notranslate nohighlight">\(^2\)</span>/s</p>
+<div class="tip admonition">
+<p class="admonition-title">Tip</p>
+<p>You can change input values to see the effect.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Simulating diffusion </span><span class="se">\n</span><span class="s2">You can change input values to see the effect</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="p">)</span> 
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 <span class="c1"># Initial Conditions</span>
 <span class="n">nx</span> <span class="o">=</span> <span class="mi">20</span>
 <span class="n">dx</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="n">nx</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># number of space compartment</span>
@@ -552,13 +568,7 @@ J_{diff} &amp;= - D \cdot A\cdot\frac{\Delta C}{L}\
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>
-Simulating diffusion 
-You can change input values to see the effect
-
-</pre></div>
-</div>
-<img alt="../../_images/21_1_adv_dis_13_1.png" src="../../_images/21_1_adv_dis_13_1.png" />
+<img alt="../../_images/21_1_adv_dis_15_0.png" src="../../_images/21_1_adv_dis_15_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -652,7 +662,7 @@ D_{hyd} = D_{mech} + D_p = \alpha \cdot v + D_p = \alpha \cdot v + n_e \cdot D
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="21_conservative.html" title="previous page">Conservative Transport</a>
+    <a class='left-prev' id="prev-link" href="21_conservative.html" title="previous page">Lecture 9-  Conservative Transport</a>
     <a class='right-next' id="next-link" href="T5_conservative.html" title="next page">Tutorial 5 - Conservative Transport</a>
 
     </div>
