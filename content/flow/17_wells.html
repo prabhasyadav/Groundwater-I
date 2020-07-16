@@ -176,7 +176,7 @@
                 <!-- ipynb file if we had a myst markdown file -->
                 
                 <!-- Download raw file -->
-                <a class="dropdown-buttons" href="../../_sources/content/flow/17_wells.md"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.md</button></a>
+                <a class="dropdown-buttons" href="../../_sources/content/flow/17_wells.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
                 <!-- Download PDF via print -->
                 <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
             </div>
@@ -190,6 +190,18 @@
         <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+            <div class="dropdown-buttons">
+                
+                <a class="binder-button" href="https://mybinder.org/v2/gh/prabhasyadav/Groundwater-I/gh-pages?urlpath=tree/content/flow/17_wells.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                
+                
+                <button type="button" class="btn btn-secondary topbarbtn thebelab-launch-button" onclick="initThebelab()" title="Launch Thebelab" data-toggle="tooltip" data-placement="left"><i class="fas fa-rocket"></i><span style="margin-left: .4em;">ThebeLab</span></button>
+                
+            </div>
+        </div>
         
     </div>
     <div class="d-none d-md-block col-md-2 bd-toc show">
@@ -208,6 +220,10 @@
             <a href="#anne-sophie-is-to-add-the-numerical-contents" class="nav-link">Anne/Sophie is to add the numerical contents</a>
         </li>
     
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#transmissivity" class="nav-link">Transmissivity</a>
+        </li>
+    
     </ul>
 </nav>
 
@@ -219,7 +235,17 @@
         
               <div>
                 
-  <div class="section" id="lecture-7-wells-and-aquifer">
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sc</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="lecture-7-wells-and-aquifer">
 <h1>Lecture 7 -  Wells and aquifer<a class="headerlink" href="#lecture-7-wells-and-aquifer" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="prof-liedl-prof-werth-prof-chahar-prabhas-is-to-add-the-text-contents">
 <h2>Prof. Liedl/Prof. Werth/Prof. Chahar/Prabhas is to add the text contents.<a class="headerlink" href="#prof-liedl-prof-werth-prof-chahar-prabhas-is-to-add-the-text-contents" title="Permalink to this headline">¶</a></h2>
@@ -228,6 +254,107 @@
 <h2>Anne/Sophie is to add the numerical contents<a class="headerlink" href="#anne-sophie-is-to-add-the-numerical-contents" title="Permalink to this headline">¶</a></h2>
 <p>Include ipynb file for:</p>
 <p>Theis method.</p>
+</div>
+<div class="section" id="transmissivity">
+<h2>Transmissivity<a class="headerlink" href="#transmissivity" title="Permalink to this headline">¶</a></h2>
+<p>When discussing storage properties in Chapter / Lecture …, we saw that aquifers or single layers may frequently be treated as two-dimensional systems. This is justified because the lateral extension of aquifers is usually much larger than the vertical extension. Thus, vertical variations of storage properties can be replaced by some average value without adversely affecting the quantification of groundwater storage.</p>
+<p>Similar things can be done with regard to conductivity properties and this brings us to the geohydraulic parameter of <strong>Transmissivity</strong>. The idea is to neglect vertical variations of <em>hydraulic conductivity</em> (<span class="math notranslate nohighlight">\(K\)</span>)  and to use vertically averaged values instead. This procedure does not eliminate horizontal variability, so <em>transmissivity</em> may still depend on horizontal coordinates <span class="math notranslate nohighlight">\((x, y)\)</span>.</p>
+<p>The vertically averaged <span class="math notranslate nohighlight">\(K\)</span> value is then multiplied by the water-saturated thickness to obtain transmissivity. The concept of water-saturated thickness (or water-saturated depth) requires to distinguish whether <em>confined</em> or <em>unconfined</em> flow conditions prevail.</p>
+<p>In general, water-saturated thickness is the distance from the aquifer bottom to a level up to which all pores are filled with water. For <em>confined aquifers</em>, this level is equal to aquifer top and water-saturated thickness is tantamount to aquifer thickness. For <em>unconfined aquifers</em>, however, water-saturated thickness corresponds to the distance between aquifer bottom and groundwater level. We will see some illustrations below when we try to quantify <em>transmissivity</em>.</p>
+<p>The symbol <span class="math notranslate nohighlight">\(T\)</span> is mostly used to denote transmissivity which has a dimension of <span class="math notranslate nohighlight">\(L^2T^{-1}\)</span>.</p>
+<p>Let us have a closer look at the confined case first. The black cuboid in Fig.[LINK] illustrates that water-saturated thickness extends from aquifer bottom to aquifer top. So, it is equal to <em>aquifer thickness</em> <span class="math notranslate nohighlight">\(m\)</span>. Transmissivity is calculated by</p>
+<div class="math notranslate nohighlight">
+\[
+T_x = K_x \cdot m  \;\; \text{ and }  \;\; Ty = K_y \cdot m
+\]</div>
+<p>Here we allow for horizontal aquifer anisotropy with different hydraulic conductivities in <span class="math notranslate nohighlight">\(x-\)</span> and <span class="math notranslate nohighlight">\(y-\)</span> direction <span class="math notranslate nohighlight">\((K_x \neq K_y)\)</span>.</p>
+<p>For horizontally isotropic aquifers <span class="math notranslate nohighlight">\((K_x = K_y = K)\)</span>, transmissivity is given by $T = K  \cdot m $.</p>
+<p><a href="fig1"></a><img src="images/L7_f1.png" alt ="Transmissivity-Confined aquifer" width = "400"></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;We already have large text content, equations and so we can add a simple numerical example here&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>We already have large text content, equations and so we can add a simple numerical example here
+</pre></div>
+</div>
+</div>
+</div>
+<p>Things are a bit more complicated for <em>unconfined aquifers</em>. Fig. [LINK] illustrates that water-saturated thickness extends from the aquifer bottom to the groundwater table. It is important to note that <em>transmissivity</em> of unconfined aquifers depends on the vertical position of the groundwater table.</p>
+<p>For instance, if the groundwater table is lowered during to a draught period, <em>transmissivity</em> is decreasing. This is fundamentally different from the confined case where the water-saturated thickness is given by aquifer geometry only and is not affected by hydraulic head changes.</p>
+<p><a href="fig2"></a><img src="images/L7_f2.png" alt ="Transmissivity-unconfined aquifer" width = "400"></p>
+<p>Computing transmissivity of unconfined aquifers requires to determine the difference of hydraulic head h and the elevation of aquifer bottom <span class="math notranslate nohighlight">\(z_{bot}\)</span>. Based on this, transmissivity is given by:</p>
+<div class="math notranslate nohighlight">
+\[T_x = K_x \cdot (h – z_{bot})\]</div>
+<p>and
+<span class="math notranslate nohighlight">\($T_y = K_y \cdot (h – z_{bot})\)</span>$</p>
+<p>As above, we are allowing for horizontal aquifer anisotropy. For an isotropic unconfined aquifer we get
+<span class="math notranslate nohighlight">\($T = K\cdot(h – z_{bot})\)</span>$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;We already have large text content, equations and so we can add a simple numerical example here&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>We already have large text content, equations and so we can add a simple numerical example here
+</pre></div>
+</div>
+</div>
+</div>
+<p>Two more remarks appear to be appropriate: First, <em>transmissivity</em> may be computed by the given equations even if the aquifer bottom is not horizontal. This case is not covered by the figure above. Second, textbooks frequently present the equation</p>
+<div class="math notranslate nohighlight">
+\[T = K\cdot h\]</div>
+<p>for transmissivity of unconfined aquifers. It is to be noted that this equation only holds if two conditions are fulfilled:</p>
+<ul class="simple">
+<li><p>The aquifer bottom must be horizontal and</p></li>
+<li><p>hydraulic head values are expressed with respect to the elevation of aquifer bottom (= reference datum).</p></li>
+</ul>
+<p>Finally, we can try to compute transmissivity for isotropic aquifers and check how the result depends on several quantities like aquifer bottom, aquifer top, and hydraulic head.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="c1"># A bit more complicated numerical example here. An example from Prof. Liedl - we improve further.</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Q1. Determine if the aquifer is confined or unconfind and compute it&#39;s Transmissivity&quot;</span><span class="p">)</span>
+
+<span class="c1"># input</span>
+
+<span class="n">K</span> <span class="o">=</span> <span class="mf">8.5e-5</span> <span class="c1"># m/s, hydraulic conductivity</span>
+<span class="n">Ab</span> <span class="o">=</span> <span class="mi">120</span> <span class="c1"># m asl, aquifer bottom elevation </span>
+<span class="n">At</span> <span class="o">=</span> <span class="mi">150</span> <span class="c1"># m asl, aquifer top elevation </span>
+<span class="n">H</span>  <span class="o">=</span> <span class="mi">139</span> <span class="c1"># m, hydraulic head</span>
+
+<span class="c1">#intermediate calculation</span>
+<span class="n">A_T</span> <span class="o">=</span> <span class="n">At</span> <span class="o">-</span> <span class="n">Ab</span> <span class="c1"># m, Aquifer thickness</span>
+<span class="n">S_T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="n">A_T</span><span class="p">,</span> <span class="p">(</span><span class="n">H</span> <span class="o">-</span> <span class="n">Ab</span><span class="p">))</span>
+
+<span class="c1"># Results</span>
+
+<span class="k">if</span> <span class="n">H</span> <span class="o">&lt;</span> <span class="n">At</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> It is a unconfined aquifer&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> It is a Confined aquifer&quot;</span><span class="p">)</span>
+    
+<span class="n">T</span> <span class="o">=</span> <span class="n">K</span><span class="o">*</span><span class="n">A_T</span> <span class="c1"># m²/s, Transmissivity</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">The transmissivity is </span><span class="si">{0:0.2e}</span><span class="s2"> m</span><span class="se">\u00b2</span><span class="s2">/s&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">T</span><span class="p">))</span>
+
+
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Q1. Determine if the aquifer is confined or unconfind and compute it&#39;s Transmissivity
+
+ It is a unconfined aquifer
+
+The transmissivity is 2.55e-03 m²/s
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 
