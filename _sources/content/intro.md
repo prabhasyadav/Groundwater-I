@@ -8,6 +8,7 @@ The contents are geared towards learning through computing. The computing part i
 The contents are divided into:
 1. Lecture Parts
 2. Tutorial Parts
+3. Self-learning tools
 
 The lecture parts contains mostly texts [markdown][Kramdown] format and the notebooks (.ipynb). The notebooks can be interacted in the browser. 
 
@@ -19,18 +20,17 @@ The entire contents can be printed as a pdf.
 ## Main contributors
 
 The contents are developed by (not in any order):
-
-1. Prof. Rudolf Liedl (TU Dresden)
-2. Prof. Charles Werth (Uni-Texas Austin, US)
-3. Prof. B. R. Chahar (Indian Institute of Technology Delhi, Delhi)
-4. Dr.rer. nat. Prabhas K Yadav (TU Dresden)
-5. Dr. Ing. Thomas Reimann (TU Dresden)
-6. M.Sc. Hanieh Mehrdad (Student Assistant/Numerical contents- TU Dresden)
-7. Anton Köhler (Student Assistant/Model contents - TU Dresden)
-8. Abiral Poudel (Student Assistant/CS-IT support  - TU Dresden)
-9. Sophie Pförtner (Student Assistant/Numerical content - TU Dresden)
-10. Anne  Pförtner (Student Assistant/Numerical content - TU Dresden)
-11. Alexander Oy (Student Assistant/Numerical content and CS-IT Support - TU Dresden)
+- Prof. Rudolf Liedl (TU Dresden)
+- Prof Charles Werth (Uni-Texas Austin, US)
+- Prof. B. R. Chahar (Indian Institute of Technology Delhi, Delhi)
+- Dr.rer. nat. Prabhas K Yadav (TU Dresden)
+- Dr. Ing. Thomas Reimann (TU Dresden)
+- M.Sc. Hanieh Mehrdad (Student Assistant/Numerical contents- TU Dresden)
+-   Anton Köhler (Student Assistant/Model contents - TU Dresden)
+- Abiral Poudel (Student Assistant/CS-IT support  - TU Dresden)
+- Sophie Pförtner (Student Assistant/Numerical content - TU Dresden)
+- Anne  Pförtner (Student Assistant/Numerical content - TU Dresden)
+- Alexander Oy (Student Assistant/Numerical content and CS-IT Support - TU Dresden)
 
 
 ## Acknowledgements
