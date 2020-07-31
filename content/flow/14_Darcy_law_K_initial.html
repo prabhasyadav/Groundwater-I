@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Lecture 9- Conservative Transport &#8212; Groundwater I</title>
+    <title>Lecture 4 - Darcy’s Law and Conductivity &#8212; Groundwater I</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
@@ -31,21 +31,19 @@
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script async="async" src="../../_static/thebelab.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="canonical" href="https://tu-dresden.de/bu/umwelt/hydro/igw/content/transport/21_conservative.html" />
+    <link rel="canonical" href="https://tu-dresden.de/bu/umwelt/hydro/igw/content/flow/14_Darcy_law_K_initial.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Conservative transport Processes" href="21_1_adv_dis.html" />
-    <link rel="prev" title="Transport in groundwater" href="20_transport_intro.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
 
 
 <!-- Opengraph tags -->
-<meta property="og:url"         content="https://tu-dresden.de/bu/umwelt/hydro/igw/content/transport/21_conservative.html" />
+<meta property="og:url"         content="https://tu-dresden.de/bu/umwelt/hydro/igw/content/flow/14_Darcy_law_K_initial.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Lecture 9-  Conservative Transport" />
-<meta property="og:description" content="Lecture 9-  Conservative Transport  Let us start witht a groundwater contamination scenario.  <a href="fig1"></a><img src="images/T_f1.png" alt="Contamination s" />
+<meta property="og:title"       content="Lecture 4 - Darcy’s Law and Conductivity" />
+<meta property="og:description" content="Lecture 4 - Darcy’s Law and Conductivity  Prof. Liedl/Prof. Chahar is to add the text contents.  Anne/Sophie is to add the numerical contents.  Definition  Hydr" />
 <meta property="og:image"       content="https://tu-dresden.de/bu/umwelt/hydro/igw/_static/logo3.png" />
 
 <meta name="twitter:card" content="summary">
@@ -92,30 +90,13 @@
 <p class="margin-caption">Aquifer Properties and groundwater flow</p>
 </li>
   <li class="">
-    <a href="../flow/10_flow_overview.html">Groundwater Flow</a>
+    <a href="10_flow_overview.html">Groundwater Flow</a>
   </li>
 <li class="navbar-special">
 <p class="margin-caption">Transport in Groundwater</p>
 </li>
-  <li class="active">
-    <a href="20_transport_intro.html">Transport in groundwater</a>
-  <ul class="nav sidenav_l2">
-    <li class="active">
-      <a href="">Lecture 9-  Conservative Transport</a>
-    </li>
-    <li class="">
-      <a href="21_1_adv_dis.html">Conservative transport Processes</a>
-    </li>
-    <li class="">
-      <a href="T5_conservative.html">Tutorial 5 - Conservative Transport</a>
-    </li>
-    <li class="">
-      <a href="22_reactive.html">Lecture 10:  Reactive Mass Transport</a>
-    </li>
-    <li class="">
-      <a href="T6_reactive.html">Tutorial 6 - Reactive Transport</a>
-    </li>
-  </ul>
+  <li class="">
+    <a href="../transport/20_transport_intro.html">Transport in groundwater</a>
   </li>
 <li class="navbar-special">
 <p class="margin-caption">Groundwater Modeling</p>
@@ -160,7 +141,7 @@
                 <!-- ipynb file if we had a myst markdown file -->
                 
                 <!-- Download raw file -->
-                <a class="dropdown-buttons" href="../../_sources/content/transport/21_conservative.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <a class="dropdown-buttons" href="../../_sources/content/flow/14_Darcy_law_K_initial.md"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.md</button></a>
                 <!-- Download PDF via print -->
                 <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
             </div>
@@ -175,23 +156,30 @@
 
         <!-- Launch buttons -->
         
-        <div class="dropdown-buttons-trigger">
-            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-            <div class="dropdown-buttons">
-                
-                <a class="binder-button" href="https://mybinder.org/v2/gh/prabhasyadav/Groundwater-I/gh-pages?urlpath=tree/content/transport/21_conservative.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
-                
-                
-                <button type="button" class="btn btn-secondary topbarbtn thebelab-launch-button" onclick="initThebelab()" title="Launch Thebelab" data-toggle="tooltip" data-placement="left"><i class="fas fa-rocket"></i><span style="margin-left: .4em;">ThebeLab</span></button>
-                
-            </div>
-        </div>
-        
     </div>
     <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
 
 <nav id="bd-toc-nav">
     <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#prof-liedl-prof-chahar-is-to-add-the-text-contents" class="nav-link">Prof. Liedl/Prof. Chahar is to add the text contents.</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#anne-sophie-is-to-add-the-numerical-contents" class="nav-link">Anne/Sophie is to add the numerical contents.</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#definition" class="nav-link">Definition</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#components-of-hydrogeology" class="nav-link">Components of hydrogeology</a>
+        </li>
     
     </ul>
 </nav>
@@ -204,22 +192,33 @@
         
               <div>
                 
-  <div class="section" id="lecture-9-conservative-transport">
-<h1>Lecture 9-  Conservative Transport<a class="headerlink" href="#lecture-9-conservative-transport" title="Permalink to this headline">¶</a></h1>
-<p>Let us start witht a groundwater contamination scenario.</p>
-<p><a href="fig1"></a><img src="images/T_f1.png" alt="Contamination scenario" width="400" height="600"></p>
-<p>In the figure, the chemicals (contaminants) first enters the <em>vadose zone</em>, an unstatured part of the subsurface from the ground surface. The entry is faciliated with phenomenan such as rainfall. As only limited water are available and there are almost no continuous horizontal flow, the contaminants, mostly as a pure phase,  in this zone often travels vertically until it reaches the groundwater table - a boundary between an unstaturated and saturated subsurface. Beneath the water-table, the contaminants mixes with the flowing groundwater and spreads both vertically and horizontally along the saturated zone resulting to a development of a contaminant plume.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Note
-<strong>In this course we learn only of contamination in the saturated zone.</strong></p>
+  <div class="section" id="lecture-4-darcy-s-law-and-conductivity">
+<h1>Lecture 4 - Darcy’s Law and Conductivity<a class="headerlink" href="#lecture-4-darcy-s-law-and-conductivity" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="prof-liedl-prof-chahar-is-to-add-the-text-contents">
+<h2>Prof. Liedl/Prof. Chahar is to add the text contents.<a class="headerlink" href="#prof-liedl-prof-chahar-is-to-add-the-text-contents" title="Permalink to this headline">¶</a></h2>
 </div>
-<p>As was shown in the [fig1], the main process of conservative transport are:</p>
-<ul class="simple">
-<li><p>Advection/convection</p></li>
-<li><p>Dispersion</p></li>
-<li><p>Diffusion (pore)</p></li>
-</ul>
+<div class="section" id="anne-sophie-is-to-add-the-numerical-contents">
+<h2>Anne/Sophie is to add the numerical contents.<a class="headerlink" href="#anne-sophie-is-to-add-the-numerical-contents" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="definition">
+<h2>Definition<a class="headerlink" href="#definition" title="Permalink to this headline">¶</a></h2>
+<p>Hydrogeology (hydro- meaning water, and -geology meaning the study of the Earth) is the area of geology that deals with the distribution and movement of groundwater in the soil and rocks of the Earth’s crust (commonly in aquifers). The terms groundwater hydrology, geohydrology, and hydrogeology are often used interchangeably.</p>
+<p>More details can be found here <a class="reference external" href="https://en.wikipedia.org/wiki/Hydrogeology">Hydrogeology</a></p>
+</div>
+<div class="section" id="components-of-hydrogeology">
+<h2>Components of hydrogeology<a class="headerlink" href="#components-of-hydrogeology" title="Permalink to this headline">¶</a></h2>
+<p>The Darcy’s Law:</p>
+<div class="math notranslate nohighlight">
+\[
+Q = K I A
+\]</div>
+<p>with <span class="math notranslate nohighlight">\(q\)</span> [L<sup>3</sup>T<sup>-1</sup>] is discharge through a media with conductivity <span class="math notranslate nohighlight">\(K\)</span> [LT<sup>-1</sup>], passing through the surface <span class="math notranslate nohighlight">\(A\)</span> [L<sup>2</sup>] with a head gradient <span class="math notranslate nohighlight">\(I\)</span> [-], which is given as <span class="math notranslate nohighlight">\(I = \frac{h_{in}-h_{out}}{L}\)</span>. <span class="math notranslate nohighlight">\(h_{in}\)</span> and <span class="math notranslate nohighlight">\(h_{out}\)</span> [L] represents hydraulic heads at the inlet and outlet respectively, and <span class="math notranslate nohighlight">\(L\)</span> is the length of the length [L] of the column.</p>
+</div>
+</div>
+<div class="section" id="next-section">
+<h1>Next section<a class="headerlink" href="#next-section" title="Permalink to this headline">¶</a></h1>
+<p>Now that you’re familiar with the Jupyter Book structure, head to the next section
+to learn how to create your own!</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -235,7 +234,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "content/transport"
+            path: "content/flow"
         }
     }
     </script>
@@ -249,8 +248,6 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="20_transport_intro.html" title="previous page">Transport in groundwater</a>
-    <a class='right-next' id="next-link" href="21_1_adv_dis.html" title="next page">Conservative transport Processes</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
